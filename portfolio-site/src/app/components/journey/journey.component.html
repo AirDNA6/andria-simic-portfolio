@@ -1,0 +1,44 @@
+<section id="journey" class="journey section">
+  <div class="container">
+    <div class="section-header" appRevealOnScroll>
+      <span class="section-label">Career journey</span>
+      <h2 class="section-title">From intern to medior full-stack</h2>
+      <p class="section-desc">
+        A trajectory through enterprise software, integration platforms, and real-time distributed systems.
+      </p>
+    </div>
+
+    <div class="journey__timeline">
+      @for (entry of portfolio.career; track entry.company + entry.period; let i = $index) {
+        <article
+          class="journey__item"
+          [class.journey__item--current]="i === 0"
+          appRevealOnScroll
+        >
+          <div class="journey__marker">
+            <span class="journey__dot"></span>
+          </div>
+
+          <div class="journey__card">
+            <div class="journey__meta">
+              <span class="journey__period">{{ entry.period }}</span>
+              <span class="journey__badge">{{ typeLabel(entry) }}</span>
+            </div>
+
+            <h3 class="journey__role">{{ entry.role }}</h3>
+            <p class="journey__company">
+              {{ entry.company }}
+              <span class="journey__location">· {{ entry.location }}</span>
+            </p>
+
+            <ul class="journey__highlights">
+              @for (point of entry.highlights; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

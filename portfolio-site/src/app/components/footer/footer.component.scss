@@ -1,0 +1,30 @@
+.footer {
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__copy {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  &__top {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--accent-cyan);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<section id="contact" class="contact section">
+  <div class="container">
+    <div class="contact__panel" appRevealOnScroll>
+      <div class="contact__glow" aria-hidden="true"></div>
+
+      <div class="contact__content">
+        <span class="section-label">Contact</span>
+        <h2 class="contact__title">Let's build something remarkable</h2>
+        <p class="contact__desc">
+          Open to full-time roles, contract work, and technical collaborations. Reach out and I'll respond promptly.
+        </p>
+
+        <div class="contact__links">
+          <a class="contact__link contact__link--primary" [href]="'mailto:' + portfolio.email">
+            {{ portfolio.email }}
+          </a>
+          <a
+            class="contact__link"
+            [href]="portfolio.github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/AirDNA6
+          </a>
+          <span class="contact__link contact__link--muted">{{ portfolio.location }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<header class="header" [class.header--scrolled]="scrolled()">
+  <div class="header__inner container">
+    <a class="header__brand" href="#" (click)="scrollTo('hero'); $event.preventDefault()">
+      <span class="header__brand-mark">AS</span>
+      <span class="header__brand-text">Simić</span>
+    </a>
+
+    <nav class="header__nav" [class.header__nav--open]="menuOpen()">
+      @for (link of portfolio.navLinks; track link.id) {
+        <button type="button" class="header__link" (click)="scrollTo(link.id)">
+          {{ link.label }}
+        </button>
+      }
+      <a class="header__cta" [href]="'mailto:' + portfolio.email">Get in touch</a>
+    </nav>
+
+    <button
+      type="button"
+      class="header__toggle"
+      [attr.aria-expanded]="menuOpen()"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>

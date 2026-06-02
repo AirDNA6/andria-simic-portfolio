@@ -1,0 +1,44 @@
+<section id="projects" class="projects section">
+  <div class="container">
+    <div class="section-header" appRevealOnScroll>
+      <span class="section-label">Personal projects</span>
+      <h2 class="section-title">Built outside the sprint</h2>
+      <p class="section-desc">
+        Side projects that sharpen API integration, data persistence, and polished UIs.
+      </p>
+    </div>
+
+    <div class="projects__grid">
+      @for (project of portfolio.projects; track project.title; let i = $index) {
+        <a
+          class="projects__card"
+          [href]="project.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          appRevealOnScroll
+        >
+          <span class="projects__index">0{{ i + 1 }}</span>
+          <h3 class="projects__title">{{ project.title }}</h3>
+          <p class="projects__desc">{{ project.description }}</p>
+          <ul class="projects__tags">
+            @for (tag of project.tags; track tag) {
+              <li>{{ tag }}</li>
+            }
+          </ul>
+          <span class="projects__link">
+            View on GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      }
+    </div>
+  </div>
+</section>

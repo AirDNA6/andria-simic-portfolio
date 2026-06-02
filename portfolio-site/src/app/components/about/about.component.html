@@ -1,0 +1,39 @@
+<section id="about" class="about section">
+  <div class="container">
+    <div class="section-header" appRevealOnScroll>
+      <span class="section-label">About me</span>
+      <h2 class="section-title">Engineering with intent</h2>
+    </div>
+
+    <div class="about__grid">
+      <div class="about__main" appRevealOnScroll>
+        @for (paragraph of aboutParagraphs; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+      </div>
+
+      <aside class="about__aside" appRevealOnScroll>
+        <div class="about__card">
+          <h3>Education</h3>
+          @for (edu of portfolio.education; track edu.institution) {
+            <div class="about__edu-item">
+              <span class="about__edu-period">{{ edu.period }}</span>
+              <strong>{{ edu.degree }}</strong>
+              <span>{{ edu.institution }}</span>
+            </div>
+          }
+        </div>
+
+        <div class="about__card">
+          <h3>Languages</h3>
+          @for (lang of portfolio.languages; track lang.name) {
+            <div class="about__lang">
+              <span class="about__lang-name">{{ lang.name }}</span>
+              <span class="about__lang-level">{{ lang.level }}</span>
+            </div>
+          }
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
