@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { PORTFOLIO } from '../../data/portfolio.data';
+import { Component, computed, inject } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,6 +8,9 @@ import { PORTFOLIO } from '../../data/portfolio.data';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-  readonly portfolio = PORTFOLIO;
+  private readonly language = inject(LanguageService);
+
+  readonly content = this.language.content;
+  readonly ui = computed(() => this.content().ui.footer);
   readonly year = new Date().getFullYear();
 }

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
-import { PORTFOLIO } from '../../data/portfolio.data';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-about',
@@ -10,6 +10,9 @@ import { PORTFOLIO } from '../../data/portfolio.data';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-  readonly portfolio = PORTFOLIO;
-  readonly aboutParagraphs = PORTFOLIO.about.split('\n\n').filter(Boolean);
+  private readonly language = inject(LanguageService);
+
+  readonly content = this.language.content;
+  readonly ui = computed(() => this.content().ui.about);
+  readonly aboutParagraphs = computed(() => this.content().about.split('\n\n').filter(Boolean));
 }

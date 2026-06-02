@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
-import { CareerEntry, PORTFOLIO } from '../../data/portfolio.data';
+import { CareerEntry } from '../../data/portfolio.types';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-journey',
@@ -10,14 +11,18 @@ import { CareerEntry, PORTFOLIO } from '../../data/portfolio.data';
   styleUrl: './journey.component.scss',
 })
 export class JourneyComponent {
-  readonly portfolio = PORTFOLIO;
+  private readonly language = inject(LanguageService);
+
+  readonly content = this.language.content;
+  readonly ui = computed(() => this.content().ui.journey);
 
   typeLabel(entry: CareerEntry): string {
-    const labels: Record<CareerEntry['type'], string> = {
-      work: 'Full-time',
-      freelance: 'Freelance',
-      intern: 'Internship',
+    const labels = this.ui();
+    const map: Record<CareerEntry['type'], string> = {
+      work: labels.typeWork,
+      freelance: labels.typeFreelance,
+      intern: labels.typeIntern,
     };
-    return labels[entry.type];
+    return map[entry.type];
   }
 }

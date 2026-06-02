@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
-import { PORTFOLIO } from '../../data/portfolio.data';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,5 +10,8 @@ import { PORTFOLIO } from '../../data/portfolio.data';
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-  readonly portfolio = PORTFOLIO;
+  private readonly language = inject(LanguageService);
+
+  readonly content = this.language.content;
+  readonly ui = computed(() => this.content().ui.contact);
 }

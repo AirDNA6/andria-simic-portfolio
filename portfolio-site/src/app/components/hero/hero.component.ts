@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
-import { PORTFOLIO } from '../../data/portfolio.data';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-hero',
@@ -10,7 +10,10 @@ import { PORTFOLIO } from '../../data/portfolio.data';
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
-  readonly portfolio = PORTFOLIO;
+  private readonly language = inject(LanguageService);
+
+  readonly content = this.language.content;
+  readonly ui = computed(() => this.content().ui.hero);
 
   scrollTo(id: string): void {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });

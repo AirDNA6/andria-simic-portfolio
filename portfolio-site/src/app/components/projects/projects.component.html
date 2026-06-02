@@ -1,15 +1,13 @@
 <section id="projects" class="projects section">
   <div class="container">
     <div class="section-header" appRevealOnScroll>
-      <span class="section-label">Personal projects</span>
-      <h2 class="section-title">Built outside the sprint</h2>
-      <p class="section-desc">
-        Side projects that sharpen API integration, data persistence, and polished UIs.
-      </p>
+      <span class="section-label">{{ ui().label }}</span>
+      <h2 class="section-title">{{ ui().title }}</h2>
+      <p class="section-desc">{{ ui().desc }}</p>
     </div>
 
     <div class="projects__grid">
-      @for (project of portfolio.projects; track project.title; let i = $index) {
+      @for (project of content().projects; track project.title; let i = $index) {
         <a
           class="projects__card"
           [href]="project.url"
@@ -26,7 +24,7 @@
             }
           </ul>
           <span class="projects__link">
-            View on GitHub
+            {{ ui().viewOnGithub }}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path
                 d="M7 17L17 7M17 7H7M17 7V17"

@@ -1,8 +1,8 @@
 <footer class="footer">
   <div class="container footer__inner">
     <p class="footer__copy">
-      © {{ year }} {{ portfolio.name }}. Crafted with Angular.
+      © {{ year }} {{ content().name }}. {{ ui().crafted }}
     </p>
-    <a class="footer__top" href="#hero">Back to top ↑</a>
+    <a class="footer__top" href="#hero">{{ ui().backToTop }}</a>
   </div>
 </footer>

@@ -1,15 +1,13 @@
 <section id="journey" class="journey section">
   <div class="container">
     <div class="section-header" appRevealOnScroll>
-      <span class="section-label">Career journey</span>
-      <h2 class="section-title">From intern to medior full-stack</h2>
-      <p class="section-desc">
-        A trajectory through enterprise software, integration platforms, and real-time distributed systems.
-      </p>
+      <span class="section-label">{{ ui().label }}</span>
+      <h2 class="section-title">{{ ui().title }}</h2>
+      <p class="section-desc">{{ ui().desc }}</p>
     </div>
 
     <div class="journey__timeline">
-      @for (entry of portfolio.career; track entry.company + entry.period; let i = $index) {
+      @for (entry of content().career; track entry.company + entry.period; let i = $index) {
         <article
           class="journey__item"
           [class.journey__item--current]="i === 0"

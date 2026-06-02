@@ -1,5 +1,5 @@
-import { Component, HostListener, inject, signal } from '@angular/core';
-import { PORTFOLIO } from '../../data/portfolio.data';
+import { Component, computed, HostListener, inject, signal } from '@angular/core';
+import { AppLanguage, LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +8,16 @@ import { PORTFOLIO } from '../../data/portfolio.data';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  readonly portfolio = PORTFOLIO;
+  private readonly language = inject(LanguageService);
+
+  readonly content = this.language.content;
+  readonly lang = this.language.lang;
   readonly menuOpen = signal(false);
   readonly scrolled = signal(false);
+
+  readonly toggleLangLabel = computed(() =>
+    this.lang() === 'en' ? this.content().ui.switchToSrb : this.content().ui.switchToEn
+  );
 
   @HostListener('window:scroll')
   onScroll(): void {
@@ -24,5 +31,10 @@ export class HeaderComponent {
 
   toggleMenu(): void {
     this.menuOpen.update((open) => !open);
+  }
+
+  setLanguage(language: AppLanguage): void {
+    this.language.setLanguage(language);
+    this.menuOpen.set(false);
   }
 }

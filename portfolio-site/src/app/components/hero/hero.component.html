@@ -4,42 +4,42 @@
   <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
 
   <div class="container hero__content">
-    <p class="hero__eyebrow" appRevealOnScroll>Available for impactful engineering roles</p>
+    <p class="hero__eyebrow" appRevealOnScroll>{{ ui().eyebrow }}</p>
 
     <h1 class="hero__title" appRevealOnScroll>
-      <span class="hero__title-line">{{ portfolio.name }}</span>
-      <span class="hero__title-accent">{{ portfolio.title }}</span>
+      <span class="hero__title-line">{{ content().name }}</span>
+      <span class="hero__title-accent">{{ content().title }}</span>
     </h1>
 
-    <p class="hero__tagline" appRevealOnScroll>{{ portfolio.tagline }}</p>
+    <p class="hero__tagline" appRevealOnScroll>{{ content().tagline }}</p>
 
     <div class="hero__actions" appRevealOnScroll>
       <button type="button" class="btn btn--primary" (click)="scrollTo('journey')">
-        View my journey
+        {{ ui().viewJourney }}
       </button>
-      <a class="btn btn--ghost" [href]="portfolio.github" target="_blank" rel="noopener noreferrer">
-        GitHub profile
+      <a class="btn btn--ghost" [href]="content().github" target="_blank" rel="noopener noreferrer">
+        {{ ui().githubProfile }}
       </a>
     </div>
 
     <div class="hero__stats" appRevealOnScroll>
       <div class="hero__stat">
         <span class="hero__stat-value">5+</span>
-        <span class="hero__stat-label">Years in tech</span>
+        <span class="hero__stat-label">{{ ui().yearsInTech }}</span>
       </div>
       <div class="hero__stat">
         <span class="hero__stat-value">.NET</span>
-        <span class="hero__stat-label">& Angular stack</span>
+        <span class="hero__stat-label">{{ ui().angularStack }}</span>
       </div>
       <div class="hero__stat">
-        <span class="hero__stat-value">Belgrade</span>
-        <span class="hero__stat-label">Based · Remote-ready</span>
+        <span class="hero__stat-value">{{ content().location.split(',')[0] }}</span>
+        <span class="hero__stat-label">{{ ui().basedRemote }}</span>
       </div>
     </div>
   </div>
 
   <div class="hero__scroll" aria-hidden="true">
-    <span>Scroll</span>
+    <span>{{ ui().scroll }}</span>
     <div class="hero__scroll-line"></div>
   </div>
 </section>
