@@ -17,6 +17,7 @@ export interface EducationEntry {
 export interface ProjectEntry {
   title: string;
   url: string;
+  liveUrl?: string;
   description: string;
   tags: string[];
 }
@@ -73,6 +74,7 @@ export interface PortfolioUi {
     title: string;
     desc: string;
     viewOnGithub: string;
+    viewLive: string;
   };
   contact: {
     title: string;

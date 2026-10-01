@@ -41,6 +41,9 @@ export function buildKnowledge(content: PortfolioContent): string {
     ...content.skillGroups.map((group) => `- ${group.label}: ${group.items.join(', ')}`),
     '',
     'PERSONAL PROJECTS:',
-    ...content.projects.map((p) => `- ${p.title} (${p.url}): ${p.description} Tags: ${p.tags.join(', ')}`),
+    ...content.projects.map(
+      (p) =>
+        `- ${p.title} (repository: ${p.url}${p.liveUrl ? `, live: ${p.liveUrl}` : ''}): ${p.description} Tags: ${p.tags.join(', ')}`,
+    ),
   ].join('\n');
 }

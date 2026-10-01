@@ -57,6 +57,18 @@
     margin-top: 1.25rem;
   }
 
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 0.75rem 1.5rem;
+
+    @media (min-width: 40rem) {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+  }
+
   &__link {
     display: inline-flex;
     align-items: center;
@@ -68,6 +80,17 @@
 
     svg {
       transition: transform 0.25s var(--ease-out);
+    }
+
+    // Sits above the stretched title anchor so it stays clickable on its own.
+    &--live {
+      position: relative;
+      z-index: 1;
+
+      &:hover svg,
+      &:focus-visible svg {
+        transform: translate(3px, -3px);
+      }
     }
   }
 }

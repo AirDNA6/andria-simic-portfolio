@@ -28,18 +28,41 @@
             </ul>
           </div>
 
-          <span class="projects__link" aria-hidden="true">
-            {{ ui().viewOnGithub }}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M7 17L17 7M17 7H8M17 7V16"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </span>
+          <div class="projects__links">
+            <span class="projects__link" aria-hidden="true">
+              {{ ui().viewOnGithub }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M7 17L17 7M17 7H8M17 7V16"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+
+            @if (project.liveUrl) {
+              <a
+                class="projects__link projects__link--live"
+                [href]="project.liveUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                [attr.aria-label]="project.title + ' — ' + ui().viewLive"
+              >
+                {{ ui().viewLive }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 17L17 7M17 7H8M17 7V16"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            }
+          </div>
         </li>
       }
     </ul>

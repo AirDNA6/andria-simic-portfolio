@@ -21,7 +21,7 @@ Across enterprise and freelance engagements, I've partnered with key users throu
       location: 'Belgrade',
       current: true,
       highlights: [
-        'Member of the SWAT team, working on the Finance application and developing a new module for contracts.',
+        'Member of the SWAT Team, contributing to the development and maintenance of the Finance application, with a focus on developing a new Contracts module.',
         'Built a notification microservice with Angular, .NET, SignalR, DynamoDB, and Kafka. Its event-driven architecture delivers scalable real-time notifications and is integrated into multiple projects.',
         'Created custom NuGet packages for SignalR and Kafka to standardize usage and simplify integration across services.',
         'Implemented Redis caching to improve performance and reduce database load.',
@@ -113,6 +113,14 @@ Across enterprise and freelance engagements, I've partnered with key users throu
 
   projects: [
     {
+      title: 'Portfolio',
+      url: 'https://github.com/AirDNA6/andria-simic-portfolio',
+      liveUrl: 'https://andria-simic-portfolio.vercel.app/',
+      description:
+        'Angular portfolio with light and dark themes and an AI digital twin that answers questions only from the portfolio content. Deployed on Vercel.',
+      tags: ['Angular', 'TypeScript', 'Vercel', 'Gemini API'],
+    },
+    {
       title: 'react-nbs',
       url: 'https://github.com/AirDNA6/react-nbs',
       description:
@@ -125,7 +133,7 @@ Across enterprise and freelance engagements, I've partnered with key users throu
       description:
         'Cinema discovery web app powered by The Movie Database (TMDB) API, built with React for smooth browsing and search.',
       tags: ['React', 'TMDB API', 'SPA'],
-    },
+    }
   ],
 
   navLinks: [
@@ -170,9 +178,10 @@ Across enterprise and freelance engagements, I've partnered with key users throu
       desc: 'Technologies I use in production across backend, frontend, data, and cloud.',
     },
     projects: {
-      title: 'Built outside the sprint',
+      title: 'Person projects',
       desc: 'Side projects that sharpen API integration, data persistence, and polished UIs.',
       viewOnGithub: 'View on GitHub',
+      viewLive: 'Live site',
     },
     contact: {
       title: 'Have a role or project in mind?',

@@ -9,9 +9,9 @@ export const PORTFOLIO_SRB: PortfolioContent = {
   github: 'https://github.com/AirDNA6',
   location: 'Beograd, Srbija',
 
-  about: `Medior full-stack developer sa osnovom iz elektrotehnike i računarstva, specijalizovan za .NET, Angular i cloud-native arhitekture. Gradim real-time, event-driven sisteme uz Kafka i SignalR i pazim da API-⁠ji ostanu čisti i održivi.
+  about: `Medior full-stack developer specijalizovan za .NET, Angular i cloud-native arhitekture. Real-time, event-driven sisteme uz Kafka i SignalR i pazim da API-⁠ji ostanu održivi i pouzdani.
 
-Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima na nedeljnim sastancima, standardizovao integracije kroz custom NuGet pakete i unapredio performanse pomoću Redis-a, Elasticsearch-a i AWS-a. U svaki sprint unosim sistemski pristup: merljiv uticaj, pouzdan kod i interfejsi koji deluju namerno.`,
+Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, standardizovao integracije kroz custom NuGet pakete i unapredio performanse pomoću Redis-a, Elasticsearch-a i AWS-a. U svaki sprint unosim sistemski pristup: merljiv uticaj, pouzdan kod i interfejsi.`,
 
   career: [
     {
@@ -21,7 +21,7 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima n
       location: 'Beograd',
       current: true,
       highlights: [
-        'Član SWAT tima: rad na Finance aplikaciji i razvoj novog modula za ugovore.',
+        'Član SWAT tima, angažovan na razvoju i održavanju finansijske aplikacije, sa fokusom na razvoj novog modula za ugovore.',
         'Razvio mikroservis za notifikacije koristeći Angular, .NET, SignalR, DynamoDB i Kafka. Event-driven arhitektura omogućava skalabilne real-time notifikacije, a servis je integrisan u više projekata.',
         'Kreirao custom NuGet pakete za SignalR i Kafka radi standardizacije upotrebe i lakše integracije kroz servise.',
         'Implementirao Redis keširanje radi boljih performansi i manjeg opterećenja baze.',
@@ -113,6 +113,14 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima n
 
   projects: [
     {
+      title: 'Portfolio',
+      url: 'https://github.com/AirDNA6/andria-simic-portfolio',
+      liveUrl: 'https://andria-simic-portfolio.vercel.app/',
+      description:
+        'Angular portfolio sa svetlom i tamnom temom i AI digitalnim blizancem koji odgovara isključivo na osnovu sadržaja portfolija. Postavljen na Vercel.',
+      tags: ['Angular', 'TypeScript', 'Vercel', 'Gemini API'],
+    },
+    {
       title: 'react-nbs',
       url: 'https://github.com/AirDNA6/react-nbs',
       description:
@@ -125,7 +133,7 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima n
       description:
         'Web aplikacija za otkrivanje filmova koristeći TMDB API, izgrađena u React-u za fluidno pretraživanje i pregled.',
       tags: ['React', 'TMDB API', 'SPA'],
-    },
+    }
   ],
 
   navLinks: [
@@ -170,9 +178,10 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima n
       desc: 'Tehnologije koje koristim u produkciji: backend, frontend, podaci i cloud.',
     },
     projects: {
-      title: 'Izvan sprinta',
+      title: 'Lični projekti',
       desc: 'Side projekti koji oštre API integracije, perzistenciju podataka i doteran UI.',
       viewOnGithub: 'Pogledaj na GitHub-u',
+      viewLive: 'Live sajt',
     },
     contact: {
       title: 'Imaš ulogu ili projekat na umu?',
