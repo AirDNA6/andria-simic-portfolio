@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ScrollBackgroundDirective } from '../../directives/scroll-background.directive';
 import { AboutComponent } from '../../components/about/about.component';
 import { ContactComponent } from '../../components/contact/contact.component';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -12,7 +11,6 @@ import { SkillsComponent } from '../../components/skills/skills.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  hostDirectives: [ScrollBackgroundDirective],
   imports: [
     HeaderComponent,
     HeroComponent,

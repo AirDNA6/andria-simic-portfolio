@@ -1,22 +1,23 @@
 <section id="skills" class="skills section">
-  <div class="container">
-    <div class="section-header section-header--center" appRevealOnScroll>
-      <span class="section-label">{{ ui().label }}</span>
-      <h2 class="section-title">{{ ui().title }}</h2>
-      <p class="section-desc">{{ ui().desc }}</p>
-    </div>
+  <div class="container section__grid">
+    <header class="section__head">
+      <h2 class="section__title">{{ ui().title }}</h2>
+      <p class="section__desc">{{ ui().desc }}</p>
+    </header>
 
-    <div class="skills__grid">
+    <dl class="skills__list">
       @for (group of content().skillGroups; track group.label) {
-        <div class="skills__group" appRevealOnScroll>
-          <h3 class="skills__group-label">{{ group.label }}</h3>
-          <ul class="skills__list">
-            @for (skill of group.items; track skill) {
-              <li class="skills__chip">{{ skill }}</li>
-            }
-          </ul>
+        <div class="skills__row">
+          <dt class="skills__label">{{ group.label }}</dt>
+          <dd>
+            <ul class="skills__items">
+              @for (skill of group.items; track skill) {
+                <li class="tag">{{ skill }}</li>
+              }
+            </ul>
+          </dd>
         </div>
       }
-    </div>
+    </dl>
   </div>
 </section>

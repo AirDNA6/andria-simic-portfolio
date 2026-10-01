@@ -2,9 +2,10 @@ export interface CareerEntry {
   period: string;
   role: string;
   company: string;
-  location: string;
+  location?: string;
+  current?: boolean;
   highlights: string[];
-  type: 'work' | 'freelance' | 'intern';
+  stack: string[];
 }
 
 export interface EducationEntry {
@@ -36,48 +37,48 @@ export interface LanguageEntry {
 }
 
 export interface PortfolioUi {
+  skipToContent: string;
   getInTouch: string;
   toggleNav: string;
   switchToEn: string;
   switchToSrb: string;
+  switchToDark: string;
+  switchToLight: string;
   hero: {
-    eyebrow: string;
-    viewJourney: string;
+    status: string;
+    remote: string;
+    viewExperience: string;
     githubProfile: string;
-    yearsInTech: string;
-    angularStack: string;
-    basedRemote: string;
-    scroll: string;
+    flowLabel: string;
+    flowCaption: string;
+    replay: string;
   };
   about: {
-    label: string;
     title: string;
     education: string;
     languages: string;
   };
   journey: {
-    label: string;
     title: string;
     desc: string;
-    typeWork: string;
-    typeFreelance: string;
-    typeIntern: string;
+    employment: string;
+    freelance: string;
+    stack: string;
   };
   skills: {
-    label: string;
     title: string;
     desc: string;
   };
   projects: {
-    label: string;
     title: string;
     desc: string;
     viewOnGithub: string;
   };
   contact: {
-    label: string;
     title: string;
     desc: string;
+    copyEmail: string;
+    copied: string;
   };
   footer: {
     crafted: string;
@@ -95,6 +96,7 @@ export interface PortfolioContent {
   location: string;
   about: string;
   career: CareerEntry[];
+  freelance: CareerEntry[];
   education: EducationEntry[];
   languages: LanguageEntry[];
   skillGroups: SkillGroup[];

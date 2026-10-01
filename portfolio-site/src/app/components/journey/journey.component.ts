@@ -1,12 +1,9 @@
 import { Component, computed, inject } from '@angular/core';
-import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
-import { CareerEntry } from '../../data/portfolio.types';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-journey',
   standalone: true,
-  imports: [RevealOnScrollDirective],
   templateUrl: './journey.component.html',
   styleUrl: './journey.component.scss',
 })
@@ -16,13 +13,13 @@ export class JourneyComponent {
   readonly content = this.language.content;
   readonly ui = computed(() => this.content().ui.journey);
 
-  typeLabel(entry: CareerEntry): string {
-    const labels = this.ui();
-    const map: Record<CareerEntry['type'], string> = {
-      work: labels.typeWork,
-      freelance: labels.typeFreelance,
-      intern: labels.typeIntern,
-    };
-    return map[entry.type];
-  }
+  /** Employment first, then freelance work as its own group, as the CV lays it out. */
+  readonly groups = computed(() => {
+    const { career, freelance } = this.content();
+    const ui = this.ui();
+    return [
+      { id: 'employment', title: ui.employment, hideTitle: true, entries: career },
+      ...(freelance.length ? [{ id: 'freelance', title: ui.freelance, hideTitle: false, entries: freelance }] : []),
+    ];
+  });
 }

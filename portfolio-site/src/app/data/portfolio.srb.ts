@@ -4,14 +4,14 @@ export const PORTFOLIO_SRB: PortfolioContent = {
   pageTitle: 'Andria Simić — Full Stack Developer',
   name: 'Andria Simić',
   title: 'Full Stack Developer',
-  tagline: 'Gradim skalabilne sisteme gde enterprise rigor susreće preciznu realizaciju.',
+  tagline: 'Čista arhitektura, real-time sistemi i kod koji stiže u produkciju.',
   email: 'simic.andria06@gmail.com',
   github: 'https://github.com/AirDNA6',
   location: 'Beograd, Srbija',
 
-  about: `Medior full-stack developer sa osnovom iz elektrotehnike i računarstva, specijalizovan za .NET backend, Angular frontend i cloud-native arhitekture. Najbolje radim na preseku čiste arhitekture i brzine isporuke — bilo da vodim migracije u Talend ESB-u, isporučujem mikroservise za real-time notifikacije sa Kafka i SignalR, ili doterujem API-je za dugoročnu održivost.
+  about: `Medior full-stack developer sa osnovom iz elektrotehnike i računarstva, specijalizovan za .NET, Angular i cloud-native arhitekture. Gradim real-time, event-driven sisteme uz Kafka i SignalR i pazim da API-⁠ji ostanu čisti i održivi.
 
-Kroz enterprise i freelance angažmane saradjivao sam sa korisnicima na nedeljnim sastancima, standardizovao integracije kroz custom NuGet pakete i unapredio performanse pomoću Redis-a, Elasticsearch-a i AWS-a. U svaki sprint unosim sistemski pristup: merljiv uticaj, pouzdan kod i interfejsi koji deluju namerno.`,
+Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima na nedeljnim sastancima, standardizovao integracije kroz custom NuGet pakete i unapredio performanse pomoću Redis-a, Elasticsearch-a i AWS-a. U svaki sprint unosim sistemski pristup: merljiv uticaj, pouzdan kod i interfejsi koji deluju namerno.`,
 
   career: [
     {
@@ -19,44 +19,54 @@ Kroz enterprise i freelance angažmane saradjivao sam sa korisnicima na nedeljni
       role: 'Medior Full Stack Developer',
       company: 'ExamRoom.AI',
       location: 'Beograd',
-      type: 'work',
+      current: true,
       highlights: [
-        'Razvio mikroservis za notifikacije koristeći .NET, Angular, SignalR, DynamoDB i Kafka za skalabilna real-time ažuriranja u više proizvoda.',
-        'Kreirao custom NuGet pakete za SignalR i Kafka radi standardizacije integracije kroz servise.',
-        'Implementirao Redis keširanje radi smanjenja opterećenja baze i bržih odgovora.',
-        'Razvio i integrisao nove module; refaktorisao Minimal API strukturu radi bolje održivosti.',
+        'Razvio mikroservis za notifikacije koristeći Angular, .NET, SignalR, DynamoDB i Kafka. Event-driven arhitektura omogućava skalabilne real-time notifikacije, a servis je integrisan u više projekata.',
+        'Kreirao custom NuGet pakete za SignalR i Kafka radi standardizacije upotrebe i lakše integracije kroz servise.',
+        'Implementirao Redis keširanje radi boljih performansi i manjeg opterećenja baze.',
+        'Razvio Bulk Item Import modul: Excel šablone za masovno kreiranje i prevođenje postojećih stavki, uz backend validaciju zasnovanu na FluentValidation-u, automatsko popunjavanje ćelija i validaciju zavisnih polja radi manje ručnog unosa i grešaka.',
+        'Razvio i integrisao novi modul koji je proširio funkcionalnost aplikacije i unapredio korisničko iskustvo.',
+        'Refaktorisao Minimal API strukturu radi bolje čitljivosti, održivosti i efikasnosti.',
+        'Održavao i unapređivao postojeće funkcionalnosti, uz stabilnost sistema i bolje performanse.',
       ],
-    },
-    {
-      period: 'Feb 2022 — Feb 2023',
-      role: 'Full-Stack Developer',
-      company: 'Sirius — Management Systems Certification (ISO)',
-      location: 'Frilens',
-      type: 'freelance',
-      highlights: [
-        'Razvoj novih modula i adaptivno održavanje Sirius aplikacije (Angular, .NET Web API, MS SQL).',
-      ],
+      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet'],
     },
     {
       period: 'Mar 2021 — Mar 2023',
       role: 'Software Developer',
       company: 'V-IT Construction & Engineering D.O.O',
       location: 'Beograd',
-      type: 'work',
       highlights: [
-        'Održavao i razvijao web aplikacije sa .NET MVC, Angular i Spring Boot.',
-        'Vodio migraciju projekta u Talend ESB; integrisao Elasticsearch i ActiveMQ.',
-        'Održavao nedeljne sastanke sa ključnim korisnicima radi usklađivanja razvoja sa poslovnim potrebama.',
-        'Razvio Android CRUD aplikaciju koja koristi Swagger employee API za kontrolu pristupa.',
+        'Radio na internoj ÖBB (Austrijske savezne železnice) aplikaciji za upravljanje tenderima, koristeći Angular, .NET MVC i Vue.js.',
+        'Razvijao i održavao ADM (Address Master) za GIS sistem koristeći Angular i Spring Boot, uključujući autentifikaciju korisnika, prijavu i oporavak lozinke.',
+        'Održavao nedeljne sastanke sa ključnim korisnicima radi prikupljanja povratnih informacija, razjašnjavanja zahteva i usklađivanja rešenja sa poslovnim potrebama.',
+        'Migrirao Talend ESB projekat, uz neometan prelazak i minimalne prekide u radu.',
+        'Integrisao i optimizovao Elasticsearch sa Spring Boot-om i Talend-om radi bržeg pretraživanja i dobavljanja podataka.',
+        'Razvijao i održavao ActiveMQ messaging integracije unutar Talend ESB-a.',
       ],
+      stack: ['Angular', '.NET MVC', 'Vue.js', 'Spring Boot', 'Talend ESB', 'Elasticsearch', 'ActiveMQ'],
     },
     {
       period: 'Jun 2020 — Jul 2020',
       role: 'Praksa — Java',
       company: 'SDDITG',
       location: 'Beograd',
-      type: 'intern',
-      highlights: ['Osnove profesionalnog Java razvoja u enterprise okruženju.'],
+      highlights: [
+        'Izradio Employee Access Control, nativnu Android CRUD aplikaciju koja koristi Swagger dokumentovan API za pretragu, autentifikaciju i upravljanje pristupom zaposlenih na osnovu uloga.',
+      ],
+      stack: ['Java', 'Android', 'Swagger'],
+    },
+  ],
+
+  freelance: [
+    {
+      period: 'Feb 2022 — Feb 2023',
+      role: 'Full-Stack Developer',
+      company: 'Sirius — Management Systems Certification (ISO)',
+      highlights: [
+        'Razvoj novih modula i adaptivno održavanje Sirius aplikacije (Angular, .NET Web API, MS SQL).',
+      ],
+      stack: ['Angular', '.NET Web API', 'MS SQL'],
     },
   ],
 
@@ -75,7 +85,10 @@ Kroz enterprise i freelance angažmane saradjivao sam sa korisnicima na nedeljni
 
   languages: [
     { name: 'Srpski', level: 'Maternji jezik' },
-    { name: 'Engleski', level: 'Profesionalno — govor, čitanje, pisanje' },
+    {
+      name: 'Engleski',
+      level: 'Tečno, uz snažne veštine pisane i usmene komunikacije u profesionalnom i tehničkom okruženju',
+    },
   ],
 
   skillGroups: [
@@ -116,59 +129,59 @@ Kroz enterprise i freelance angažmane saradjivao sam sa korisnicima na nedeljni
 
   navLinks: [
     { id: 'about', label: 'O meni' },
-    { id: 'journey', label: 'Karijera' },
+    { id: 'journey', label: 'Iskustvo' },
     { id: 'skills', label: 'Veštine' },
     { id: 'projects', label: 'Projekti' },
     { id: 'contact', label: 'Kontakt' },
   ],
 
   ui: {
+    skipToContent: 'Pređi na sadržaj',
     getInTouch: 'Kontaktiraj me',
     toggleNav: 'Otvori navigaciju',
     switchToEn: 'Prebaci na engleski',
     switchToSrb: 'Prebaci na srpski',
+    switchToDark: 'Prebaci na tamnu temu',
+    switchToLight: 'Prebaci na svetlu temu',
     hero: {
-      eyebrow: 'Dostupan za značajne inženjerske uloge',
-      viewJourney: 'Pogledaj moju karijeru',
-      githubProfile: 'GitHub profil',
-      yearsInTech: 'Godina u IT-u',
-      angularStack: 'i Angular stack',
-      basedRemote: 'Beograd · Remote spreman',
-      scroll: 'Skroluj',
+      status: 'Otvoren za nove uloge',
+      remote: 'Spreman za rad na daljinu',
+      viewExperience: 'Pogledaj iskustvo',
+      githubProfile: 'GitHub',
+      flowLabel: 'Dijagram servisa za notifikacije: Kafka, .NET, SignalR, Angular',
+      flowCaption: 'Servis za real-time notifikacije, ExamRoom.AI',
+      replay: 'Ponovi',
     },
     about: {
-      label: 'O meni',
       title: 'Inženjering sa svrhom',
       education: 'Obrazovanje',
       languages: 'Jezici',
     },
     journey: {
-      label: 'Karijerni put',
-      title: 'Od prakse do medior full-stack uloge',
-      desc: 'Put kroz enterprise softver, integracione platforme i real-time distribuirane sisteme.',
-      typeWork: 'Puno radno vreme',
-      typeFreelance: 'Frilens',
-      typeIntern: 'Praksa',
+      title: 'Iskustvo',
+      desc: 'Enterprise softver, integracione platforme i real-time sistemi, od prakse do medior uloge.',
+      employment: 'Zaposlenje',
+      freelance: 'Frilens',
+      stack: 'Korišćene tehnologije',
     },
     skills: {
-      label: 'Tehnički arsenal',
       title: 'Stack i alati',
-      desc: 'Produkcione tehnologije za backend, frontend, podatke i cloud operacije.',
+      desc: 'Tehnologije koje koristim u produkciji: backend, frontend, podaci i cloud.',
     },
     projects: {
-      label: 'Lični projekti',
       title: 'Izvan sprinta',
       desc: 'Side projekti koji oštre API integracije, perzistenciju podataka i doteran UI.',
       viewOnGithub: 'Pogledaj na GitHub-u',
     },
     contact: {
-      label: 'Kontakt',
-      title: 'Hajde da napravimo nešto izvanredno',
-      desc: 'Otvoren za full-time uloge, ugovore i tehničke saradnje. Javi se — odgovaram brzo.',
+      title: 'Imaš ulogu ili projekat na umu?',
+      desc: 'Otvoren sam za full-time uloge, ugovorni rad i tehničke saradnje. Pošalji poruku i odgovoriću brzo.',
+      copyEmail: 'Kopiraj adresu',
+      copied: 'Kopirano',
     },
     footer: {
       crafted: 'Napravljeno u Angular-u.',
-      backToTop: 'Nazad na vrh ↑',
+      backToTop: 'Nazad na vrh',
     },
   },
 };

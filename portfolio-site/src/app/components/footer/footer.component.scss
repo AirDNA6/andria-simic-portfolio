@@ -1,6 +1,6 @@
 .footer {
-  padding: 2rem 0 2.5rem;
-  border-top: 1px solid var(--border-subtle);
+  padding: 1.75rem 0 2.25rem;
+  border-top: 1px solid var(--rule);
 
   &__inner {
     display: flex;
@@ -11,20 +11,15 @@
   }
 
   &__copy {
-    margin: 0;
-    font-size: 0.85rem;
-    color: var(--text-dim);
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
   }
 
   &__top {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: var(--accent-cyan);
-    }
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
   }
 }

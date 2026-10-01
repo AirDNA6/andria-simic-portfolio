@@ -1,17 +1,27 @@
+<a class="skip-link" href="#main" (click)="skipToContent($event)">{{ content().ui.skipToContent }}</a>
+
 <header class="header" [class.header--scrolled]="scrolled()">
   <div class="header__inner container">
-    <a class="header__brand" href="#" (click)="scrollTo('hero'); $event.preventDefault()">
-      <span class="header__brand-mark">AS</span>
-      <span class="header__brand-text">Simić</span>
+    <a class="header__brand" href="#hero" (click)="scrollTo('hero', $event)">
+      <span class="header__brand-mark" aria-hidden="true">AS</span>
+      <span class="header__brand-text">{{ content().name }}</span>
     </a>
 
-    <nav class="header__nav" [class.header__nav--open]="menuOpen()">
+    <nav id="site-nav" class="header__nav" [class.header__nav--open]="menuOpen()">
       @for (link of content().navLinks; track link.id) {
-        <button type="button" class="header__link" (click)="scrollTo(link.id)">
+        <a
+          class="header__link hl"
+          [class.is-active]="activeSection() === link.id"
+          [attr.aria-current]="activeSection() === link.id ? 'location' : null"
+          [href]="'#' + link.id"
+          (click)="scrollTo(link.id, $event)"
+        >
           {{ link.label }}
-        </button>
+        </a>
       }
-      <a class="header__cta" [href]="'mailto:' + content().email">{{ content().ui.getInTouch }}</a>
+      <a class="header__cta btn btn--primary" [href]="'mailto:' + content().email">
+        {{ content().ui.getInTouch }}
+      </a>
     </nav>
 
     <div class="header__actions">
@@ -19,6 +29,7 @@
         <button
           type="button"
           class="header__lang-btn"
+          lang="en"
           [class.header__lang-btn--active]="lang() === 'en'"
           [attr.aria-pressed]="lang() === 'en'"
           (click)="setLanguage('en')"
@@ -28,6 +39,7 @@
         <button
           type="button"
           class="header__lang-btn"
+          lang="sr"
           [class.header__lang-btn--active]="lang() === 'srb'"
           [attr.aria-pressed]="lang() === 'srb'"
           (click)="setLanguage('srb')"
@@ -38,7 +50,32 @@
 
       <button
         type="button"
+        class="header__theme theme-toggle"
+        [class.theme-toggle--dark]="theme() === 'dark'"
+        [attr.aria-label]="toggleThemeLabel()"
+        [attr.title]="toggleThemeLabel()"
+        (click)="toggleTheme()"
+      >
+        <svg class="theme-toggle__icon theme-toggle__moon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" />
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__sun" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.75" />
+          <path
+            d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+
+      <button
+        #menuButton
+        type="button"
         class="header__toggle"
+        [class.header__toggle--open]="menuOpen()"
+        aria-controls="site-nav"
         [attr.aria-expanded]="menuOpen()"
         [attr.aria-label]="content().ui.toggleNav"
         (click)="toggleMenu()"

@@ -2,15 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Andrias Simić — Full Stack Developer</title>
+    <title>Andria Simić — Full Stack Developer</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio of Andrias Simić — Full Stack Developer specializing in .NET, Angular, and cloud-native systems. Based in Belgrade."
+      content="Portfolio of Andria Simić — Full Stack Developer specializing in .NET, Angular, and cloud-native systems. Based in Belgrade."
     />
-    <meta name="theme-color" content="#06080f" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Andria Simić — Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Full Stack Developer specializing in .NET, Angular, and real-time, event-driven systems. Based in Belgrade."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#eceff3" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap"
+    />
+
+    <!-- Apply the saved or system theme before first paint to avoid a flash. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('portfolio-theme');
+          var dark = stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <app-root></app-root>

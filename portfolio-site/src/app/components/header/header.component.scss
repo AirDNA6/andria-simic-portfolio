@@ -1,17 +1,53 @@
+// Below this width the nav collapses into the full-screen menu (matches DESKTOP_NAV_MIN_WIDTH in the component).
+$nav-max: 63.9375rem;
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--on-signal);
+  text-decoration: none;
+  background: var(--signal);
+  border-radius: 0.5rem;
+  transform: translateY(-200%);
+
+  &:focus-visible {
+    transform: none;
+    outline-color: var(--ink);
+  }
+}
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 1.25rem 0;
-  transition: background 0.35s ease, padding 0.35s ease, border-color 0.35s ease;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
 
-  &--scrolled {
-    padding: 0.75rem 0;
-    background: rgba(6, 8, 15, 0.82);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-subtle);
+  // The frosted bar lives on a pseudo-element: a backdrop-filter on the header itself
+  // would become the containing block of the fixed mobile menu and clip it.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &--scrolled::before {
+    opacity: 1;
   }
 
   &__inner {
@@ -22,50 +58,58 @@
   }
 
   &__brand {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
-    gap: 0.65rem;
+    gap: 0.7rem;
     text-decoration: none;
-    color: var(--text-primary);
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    font-stretch: 85%;
+    letter-spacing: -0.015em;
 
     &-mark {
       display: grid;
       place-items: center;
       width: 2.25rem;
       height: 2.25rem;
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       font-weight: 800;
+      letter-spacing: 0;
+      color: var(--on-signal);
+      background: var(--signal);
       border-radius: 0.5rem;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
-      color: var(--bg-deep);
     }
 
     &-text {
       font-size: 1.05rem;
+      display: none;
+
+      @media (min-width: 30rem) {
+        display: inline;
+      }
     }
   }
 
   &__nav {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.35rem;
 
-    @media (max-width: 900px) {
+    @media (max-width: $nav-max) {
       position: fixed;
       inset: 0;
-      top: 0;
+      z-index: 1;
       flex-direction: column;
+      align-items: flex-start;
       justify-content: center;
-      gap: 1.5rem;
-      background: rgba(6, 8, 15, 0.97);
-      backdrop-filter: blur(20px);
+      gap: 0.5rem;
+      padding: var(--header-h) var(--gutter) 2rem;
+      background: var(--paper);
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
 
       &--open {
         opacity: 1;
@@ -76,106 +120,157 @@
   }
 
   &__link {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font: inherit;
-    font-size: 0.9rem;
-    padding: 0.5rem 0.85rem;
-    cursor: pointer;
-    border-radius: 0.35rem;
-    transition: color 0.2s ease, background 0.2s ease;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background-position: 0.75rem 100%;
+    background-size: 0 0.4em;
 
-    &:hover {
-      color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.04);
+    &:hover,
+    &.is-active {
+      background-size: calc(100% - 1.5rem) 0.4em;
+    }
+
+    @media (max-width: $nav-max) {
+      padding: 0.35rem 0;
+      font-size: clamp(2rem, 9vw, 2.75rem);
+      font-weight: 700;
+      font-stretch: 80%;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      background-position: 0 100%;
+
+      &:hover,
+      &.is-active {
+        background-size: 100% 0.3em;
+      }
     }
   }
 
   &__cta {
-    margin-left: 0.5rem;
-    padding: 0.55rem 1.1rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--bg-deep);
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
-    border-radius: 0.4rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-left: 0.75rem;
+    padding: 0.55rem 1.05rem;
+    font-size: 0.9rem;
 
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25);
-    }
-
-    @media (max-width: 900px) {
-      margin-left: 0;
-      margin-top: 1rem;
+    @media (max-width: $nav-max) {
+      margin: 1.5rem 0 0;
+      padding: 0.85rem 1.5rem;
+      font-size: 1rem;
     }
   }
 
   &__actions {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.6rem;
   }
 
   &__lang {
     display: flex;
     padding: 0.2rem;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
-    border-radius: 0.45rem;
+    border: 1px solid var(--rule);
+    border-radius: 0.55rem;
   }
 
   &__lang-btn {
-    min-width: 2.5rem;
-    padding: 0.35rem 0.55rem;
+    min-width: 2.4rem;
+    padding: 0.35rem 0.5rem;
     font: inherit;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--text-dim);
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
     background: transparent;
     border: none;
-    border-radius: 0.3rem;
+    border-radius: 0.35rem;
     cursor: pointer;
-    transition: color 0.2s ease, background 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease;
 
     &:hover {
-      color: var(--text-primary);
+      color: var(--ink);
     }
 
     &--active {
-      color: var(--bg-deep);
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+      color: var(--paper);
+      background: var(--ink);
+
+      &:hover {
+        color: var(--paper);
+      }
+    }
+  }
+
+  &__theme,
+  &__toggle {
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 0.55rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      border-color: var(--ink);
     }
   }
 
   &__toggle {
     display: none;
     flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    border-radius: 0.4rem;
-    cursor: pointer;
+    align-content: center;
+    gap: 5px;
 
     span {
       display: block;
       width: 18px;
       height: 2px;
-      margin: 0 auto;
-      background: var(--text-primary);
+      background: currentColor;
       border-radius: 1px;
+      transition: transform 0.25s var(--ease-out);
     }
 
-    @media (max-width: 900px) {
-      display: flex;
+    &--open span:first-child {
+      transform: translateY(3.5px) rotate(45deg);
     }
+
+    &--open span:last-child {
+      transform: translateY(-3.5px) rotate(-45deg);
+    }
+
+    @media (max-width: $nav-max) {
+      display: grid;
+      place-content: center;
+    }
+  }
+}
+
+// Both icons sit in the same cell; the one for the opposite theme is shown.
+.theme-toggle {
+  &__icon {
+    grid-area: 1 / 1;
+    transition: transform 0.4s var(--ease-out), opacity 0.25s ease;
+  }
+
+  &__sun {
+    opacity: 0;
+    transform: rotate(-70deg) scale(0.5);
+  }
+
+  &--dark &__moon {
+    opacity: 0;
+    transform: rotate(70deg) scale(0.5);
+  }
+
+  &--dark &__sun {
+    opacity: 1;
+    transform: none;
   }
 }

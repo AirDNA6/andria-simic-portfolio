@@ -1,41 +1,41 @@
 <section id="journey" class="journey section">
-  <div class="container">
-    <div class="section-header" appRevealOnScroll>
-      <span class="section-label">{{ ui().label }}</span>
-      <h2 class="section-title">{{ ui().title }}</h2>
-      <p class="section-desc">{{ ui().desc }}</p>
-    </div>
+  <div class="container section__grid">
+    <header class="section__head section__head--sticky">
+      <h2 class="section__title">{{ ui().title }}</h2>
+      <p class="section__desc">{{ ui().desc }}</p>
+    </header>
 
-    <div class="journey__timeline">
-      @for (entry of content().career; track entry.company + entry.period; let i = $index) {
-        <article
-          class="journey__item"
-          [class.journey__item--current]="i === 0"
-          appRevealOnScroll
-        >
-          <div class="journey__marker">
-            <span class="journey__dot"></span>
-          </div>
+    <div>
+      @for (group of groups(); track group.id) {
+        <h3 class="journey__group" [class.visually-hidden]="group.hideTitle">{{ group.title }}</h3>
 
-          <div class="journey__card">
-            <div class="journey__meta">
-              <span class="journey__period">{{ entry.period }}</span>
-              <span class="journey__badge">{{ typeLabel(entry) }}</span>
-            </div>
+        <ol class="journey__list">
+          @for (entry of group.entries; track entry.company + entry.period) {
+            <li class="journey__item" [class.journey__item--current]="entry.current">
+              <span class="journey__marker" aria-hidden="true"></span>
 
-            <h3 class="journey__role">{{ entry.role }}</h3>
-            <p class="journey__company">
-              {{ entry.company }}
-              <span class="journey__location">· {{ entry.location }}</span>
-            </p>
+              <article>
+                <p class="journey__period">{{ entry.period }}</p>
+                <h4 class="journey__role">{{ entry.role }}</h4>
+                <p class="journey__company">
+                  {{ entry.company }}@if (entry.location) {<span class="journey__location">, {{ entry.location }}</span>}
+                </p>
 
-            <ul class="journey__highlights">
-              @for (point of entry.highlights; track point) {
-                <li>{{ point }}</li>
-              }
-            </ul>
-          </div>
-        </article>
+                <ul class="journey__highlights">
+                  @for (point of entry.highlights; track point) {
+                    <li>{{ point }}</li>
+                  }
+                </ul>
+
+                <ul class="journey__stack" [attr.aria-label]="ui().stack">
+                  @for (tech of entry.stack; track tech) {
+                    <li class="tag">{{ tech }}</li>
+                  }
+                </ul>
+              </article>
+            </li>
+          }
+        </ol>
       }
     </div>
   </div>

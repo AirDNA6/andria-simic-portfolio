@@ -1,33 +1,38 @@
 <section id="projects" class="projects section">
-  <div class="container">
-    <div class="section-header" appRevealOnScroll>
-      <span class="section-label">{{ ui().label }}</span>
-      <h2 class="section-title">{{ ui().title }}</h2>
-      <p class="section-desc">{{ ui().desc }}</p>
-    </div>
+  <div class="container section__grid">
+    <header class="section__head">
+      <h2 class="section__title">{{ ui().title }}</h2>
+      <p class="section__desc">{{ ui().desc }}</p>
+    </header>
 
-    <div class="projects__grid">
-      @for (project of content().projects; track project.title; let i = $index) {
-        <a
-          class="projects__card"
-          [href]="project.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          appRevealOnScroll
-        >
-          <span class="projects__index">0{{ i + 1 }}</span>
-          <h3 class="projects__title">{{ project.title }}</h3>
-          <p class="projects__desc">{{ project.description }}</p>
-          <ul class="projects__tags">
-            @for (tag of project.tags; track tag) {
-              <li>{{ tag }}</li>
-            }
-          </ul>
-          <span class="projects__link">
+    <ul class="projects__list">
+      @for (project of content().projects; track project.title) {
+        <li class="projects__item">
+          <div class="projects__main">
+            <h3 class="projects__title">
+              <a
+                class="projects__anchor hl"
+                [href]="project.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                [attr.aria-label]="project.title + ' — ' + ui().viewOnGithub"
+              >
+                {{ project.title }}
+              </a>
+            </h3>
+            <p class="projects__desc">{{ project.description }}</p>
+            <ul class="projects__tags">
+              @for (tag of project.tags; track tag) {
+                <li class="tag">{{ tag }}</li>
+              }
+            </ul>
+          </div>
+
+          <span class="projects__link" aria-hidden="true">
             {{ ui().viewOnGithub }}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path
-                d="M7 17L17 7M17 7H7M17 7V17"
+                d="M7 17L17 7M17 7H8M17 7V16"
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
@@ -35,8 +40,8 @@
               />
             </svg>
           </span>
-        </a>
+        </li>
       }
-    </div>
+    </ul>
   </div>
 </section>

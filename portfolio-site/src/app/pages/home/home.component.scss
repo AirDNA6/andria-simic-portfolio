@@ -4,4 +4,9 @@
 
 main {
   position: relative;
+
+  // Focus lands here from the skip link; the page itself is not a control, so no ring.
+  &:focus {
+    outline: none;
+  }
 }

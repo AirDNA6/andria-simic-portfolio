@@ -1,45 +1,48 @@
 <section id="hero" class="hero">
-  <div class="hero__grid" aria-hidden="true"></div>
-  <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
-  <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
-
-  <div class="container hero__content">
-    <p class="hero__eyebrow" appRevealOnScroll>{{ ui().eyebrow }}</p>
-
-    <h1 class="hero__title" appRevealOnScroll>
-      <span class="hero__title-line">{{ content().name }}</span>
-      <span class="hero__title-accent">{{ content().title }}</span>
+  <div class="container hero__inner">
+    <h1 class="hero__name">
+      @for (part of nameParts(); track part; let i = $index) {
+        <span class="hero__name-line">
+          <span class="hero__name-word" [style.--i]="i">{{ part }}</span>
+        </span>
+      }
     </h1>
 
-    <p class="hero__tagline" appRevealOnScroll>{{ content().tagline }}</p>
+    <div class="hero__lower">
+      <div class="hero__intro">
+        <p class="hero__role">{{ content().title }}</p>
+        <p class="hero__tagline">{{ content().tagline }}</p>
 
-    <div class="hero__actions" appRevealOnScroll>
-      <button type="button" class="btn btn--primary" (click)="scrollTo('journey')">
-        {{ ui().viewJourney }}
-      </button>
-      <a class="btn btn--ghost" [href]="content().github" target="_blank" rel="noopener noreferrer">
-        {{ ui().githubProfile }}
-      </a>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#journey" (click)="scrollTo('journey', $event)">
+            {{ ui().viewExperience }}
+          </a>
+          <a class="btn btn--ghost" [href]="content().github" target="_blank" rel="noopener noreferrer">
+            {{ ui().githubProfile }}
+          </a>
+        </div>
+
+        <p class="hero__meta">
+          <span class="hero__status">{{ ui().status }}</span>
+          <span>{{ content().location }}</span>
+          <span>{{ ui().remote }}</span>
+        </p>
+      </div>
+
+      <figure class="hero__flow flow">
+        @for (run of [flowRun()]; track run) {
+          <ol class="flow__track" role="img" [attr.aria-label]="ui().flowLabel">
+            @for (node of flowNodes; track node; let i = $index) {
+              <li class="flow__node" [style.--i]="i">{{ node }}</li>
+            }
+            <li class="flow__packet" aria-hidden="true"></li>
+          </ol>
+        }
+        <figcaption class="flow__caption">
+          <span>{{ ui().flowCaption }}</span>
+          <button type="button" class="flow__replay" (click)="replay()">{{ ui().replay }}</button>
+        </figcaption>
+      </figure>
     </div>
-
-    <div class="hero__stats" appRevealOnScroll>
-      <div class="hero__stat">
-        <span class="hero__stat-value">5+</span>
-        <span class="hero__stat-label">{{ ui().yearsInTech }}</span>
-      </div>
-      <div class="hero__stat">
-        <span class="hero__stat-value">.NET</span>
-        <span class="hero__stat-label">{{ ui().angularStack }}</span>
-      </div>
-      <div class="hero__stat">
-        <span class="hero__stat-value">{{ content().location.split(',')[0] }}</span>
-        <span class="hero__stat-label">{{ ui().basedRemote }}</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero__scroll" aria-hidden="true">
-    <span>{{ ui().scroll }}</span>
-    <div class="hero__scroll-line"></div>
   </div>
 </section>

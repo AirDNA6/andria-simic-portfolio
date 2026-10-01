@@ -1,11 +1,9 @@
 import { Component, computed, inject } from '@angular/core';
-import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [RevealOnScrollDirective],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })

@@ -13,4 +13,9 @@ export class FooterComponent {
   readonly content = this.language.content;
   readonly ui = computed(() => this.content().ui.footer);
   readonly year = new Date().getFullYear();
+
+  scrollToTop(event: Event): void {
+    event.preventDefault();
+    document.getElementById('hero')?.scrollIntoView();
+  }
 }
