@@ -104,6 +104,11 @@ $flow-duration: 2.4s;
     font-weight: 600;
     color: var(--ink);
 
+    // On phones the status takes its own line so location and remote don't wrap one word at a time.
+    @media (max-width: 30rem) {
+      flex-basis: 100%;
+    }
+
     &::before {
       content: '';
       width: 0.6rem;
@@ -221,8 +226,10 @@ $flow-duration: 2.4s;
     text-decoration-thickness: 0.18em;
     text-underline-offset: 0.2em;
 
-    &:hover {
-      text-decoration-thickness: 0.3em;
+    @media (hover: hover) {
+      &:hover {
+        text-decoration-thickness: 0.3em;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {

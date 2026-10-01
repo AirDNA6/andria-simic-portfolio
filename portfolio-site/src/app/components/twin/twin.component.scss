@@ -1,0 +1,341 @@
+// At or below this width the sidebar fills the screen (see also body.twin-open in styles.scss).
+$phone-max: 40rem;
+$slide: 0.32s;
+
+// The edge tab: always on screen, hugging the right edge at mid-height, so the twin is hard to miss.
+.tab {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 0.6rem;
+  // The label reads top to bottom, like a book spine.
+  writing-mode: vertical-rl;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--on-signal);
+  background: var(--signal);
+  border: 1.5px solid var(--ink);
+  border-right: 0;
+  border-radius: 0.8rem 0 0 0.8rem;
+  box-shadow: -6px 8px 22px rgba(13, 27, 42, 0.18);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+  // A gentle peek three times after load to draw the eye, then it stays put.
+  animation: tab-peek 1.6s var(--ease-out) 1.5s 3;
+
+  // Extends the tap area leftwards to about 44px without making the tab wider.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 -0.75rem;
+  }
+
+  &:active {
+    transform: translate(2px, -50%);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translate(-4px, -50%);
+      box-shadow: -10px 10px 28px rgba(13, 27, 42, 0.26);
+    }
+  }
+
+  // Slimmer on phones, where it overlaps the page's right margin.
+  @media (max-width: $phone-max) {
+    gap: 0.5rem;
+    padding: 0.85rem 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  // Landscape phones have little height to spare.
+  @media (max-height: 30rem) {
+    padding-block: 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+.twin {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  width: min(var(--twin-w, 26rem), 100vw);
+  color: var(--ink);
+  background: var(--paper);
+  border-left: 1.5px solid var(--ink);
+  box-shadow: -18px 0 50px rgba(13, 27, 42, 0.18);
+  // Closed: parked off-screen. Visibility flips after the slide so it can't be focused or seen.
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform $slide var(--ease-out), visibility 0s linear $slide;
+
+  &--open {
+    transform: none;
+    visibility: visible;
+    transition: transform $slide var(--ease-out), visibility 0s;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (max-width: $phone-max) {
+    top: var(--vvt, 0);
+    bottom: auto;
+    width: 100vw;
+    height: 100vh;
+    height: var(--vvh, 100dvh);
+    border-left: 0;
+    box-shadow: none;
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 0.85rem 0.85rem 1.1rem;
+    background: var(--paper-raised);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-stretch: 90%;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    margin-top: 0.2rem;
+    font-size: var(--text-sm);
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  &__tools {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.35rem;
+  }
+
+  &__tool {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 0.55rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: var(--ink);
+      }
+    }
+  }
+
+  &__log {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 0;
+    padding: 1rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  &__form {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: var(--paper-raised);
+    border-top: 1px solid var(--rule);
+  }
+
+  // 16px on purpose: iOS Safari zooms the page when a smaller input is focused.
+  &__input {
+    flex: 1;
+    min-width: 0;
+    min-height: 2.75rem;
+    padding: 0 0.9rem;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 0.6rem;
+
+    &::placeholder {
+      color: var(--ink-faint);
+    }
+  }
+
+  &__send {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    color: var(--on-signal);
+    background: var(--signal);
+    border: 1.5px solid var(--ink);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s var(--ease-out);
+
+    &:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.msg {
+  max-width: 88%;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  border-radius: 1rem;
+
+  p {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  &--assistant {
+    align-self: flex-start;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-bottom-left-radius: 0.3rem;
+  }
+
+  &--user {
+    align-self: flex-end;
+    color: var(--paper);
+    background: var(--ink);
+    border-bottom-right-radius: 0.3rem;
+  }
+
+  &--error {
+    color: var(--ink-soft);
+    border-style: dashed;
+    border-color: var(--ink-faint);
+  }
+
+  // Shown under the typing dots when an answer is slow.
+  &__note {
+    margin-top: 0.35rem;
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+}
+
+.dots {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.35rem 0.1rem;
+
+  i {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--ink-faint);
+    border-radius: 50%;
+    animation: dot 1s ease-in-out infinite;
+
+    &:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+  }
+}
+
+.suggestions {
+  margin-top: 0.25rem;
+
+  &__label {
+    margin-bottom: 0.5rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  &__item {
+    min-height: 2.5rem;
+    padding: 0.45rem 0.85rem;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: left;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--ink-faint);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        background: var(--signal);
+        border-color: var(--ink);
+        color: var(--on-signal);
+      }
+    }
+  }
+}
+
+@keyframes tab-peek {
+  0%,
+  100% {
+    transform: translateY(-50%);
+  }
+  40% {
+    transform: translate(-12px, -50%);
+  }
+}
+
+@keyframes dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}

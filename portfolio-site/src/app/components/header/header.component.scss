@@ -25,11 +25,13 @@ $nav-max: 63.9375rem;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  // Stops short of the digital twin sidebar when the page is making room for it.
+  right: var(--twin-dock, 0px);
   z-index: 100;
   height: var(--header-h);
   display: flex;
   align-items: center;
+  transition: right 0.32s var(--ease-out);
 
   // The frosted bar lives on a pseudo-element: a backdrop-filter on the header itself
   // would become the containing block of the fixed mobile menu and clip it.
@@ -79,6 +81,12 @@ $nav-max: 63.9375rem;
       color: var(--on-signal);
       background: var(--signal);
       border-radius: 0.5rem;
+
+      // Phones: matches the 44px theme and menu buttons beside it.
+      @media (max-width: $nav-max) {
+        width: 2.75rem;
+        height: 2.75rem;
+      }
     }
 
     &-text {
@@ -102,9 +110,12 @@ $nav-max: 63.9375rem;
       z-index: 1;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: center;
+      // "safe" keeps the first link reachable when the menu is taller than the screen (landscape phones).
+      justify-content: safe center;
       gap: 0.5rem;
       padding: var(--header-h) var(--gutter) 2rem;
+      overflow-y: auto;
+      overscroll-behavior: contain;
       background: var(--paper);
       opacity: 0;
       visibility: hidden;
@@ -127,9 +138,14 @@ $nav-max: 63.9375rem;
     background-position: 0.75rem 100%;
     background-size: 0 0.4em;
 
-    &:hover,
     &.is-active {
       background-size: calc(100% - 1.5rem) 0.4em;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-size: calc(100% - 1.5rem) 0.4em;
+      }
     }
 
     @media (max-width: $nav-max) {
@@ -141,9 +157,14 @@ $nav-max: 63.9375rem;
       color: var(--ink);
       background-position: 0 100%;
 
-      &:hover,
       &.is-active {
         background-size: 100% 0.3em;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-size: 100% 0.3em;
+        }
       }
     }
   }
@@ -189,17 +210,22 @@ $nav-max: 63.9375rem;
     cursor: pointer;
     transition: color 0.2s ease, background-color 0.2s ease;
 
-    &:hover {
-      color: var(--ink);
+    // Phones: a 44px-tall target. Desktop keeps the compact switch.
+    @media (max-width: $nav-max) {
+      min-width: 2.6rem;
+      padding: 0.6rem 0.5rem;
     }
 
-    &--active {
+    @media (hover: hover) {
+      &:hover {
+        color: var(--ink);
+      }
+    }
+
+    &--active,
+    &--active:hover {
       color: var(--paper);
       background: var(--ink);
-
-      &:hover {
-        color: var(--paper);
-      }
     }
   }
 
@@ -217,8 +243,16 @@ $nav-max: 63.9375rem;
     cursor: pointer;
     transition: border-color 0.2s ease, background-color 0.2s ease;
 
-    &:hover {
-      border-color: var(--ink);
+    // Phones: 44px square targets.
+    @media (max-width: $nav-max) {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: var(--ink);
+      }
     }
   }
 

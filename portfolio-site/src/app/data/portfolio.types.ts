@@ -84,6 +84,25 @@ export interface PortfolioUi {
     crafted: string;
     backToTop: string;
   };
+  twin: {
+    launcher: string;
+    open: string;
+    close: string;
+    title: string;
+    subtitle: string;
+    welcome: string;
+    suggestionsLabel: string;
+    suggestions: string[];
+    placeholder: string;
+    send: string;
+    thinking: string;
+    stillThinking: string;
+    newChat: string;
+    you: string;
+    twinName: string;
+    errorGeneric: string;
+    errorBusy: string;
+  };
 }
 
 export interface PortfolioContent {

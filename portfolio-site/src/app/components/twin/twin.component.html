@@ -1,0 +1,132 @@
+@if (!open()) {
+  <button
+    #tab
+    type="button"
+    class="tab"
+    aria-controls="twin-panel"
+    aria-expanded="false"
+    [attr.aria-label]="ui().open"
+    (click)="openChat()"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M4 5.5h16v11H10l-4.5 3.5v-3.5H4v-11Z"
+        stroke="currentColor"
+        stroke-width="1.85"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <span>{{ ui().launcher }}</span>
+  </button>
+}
+
+<!-- The sidebar stays in the page and slides in and out; inert keeps it out of reach while closed. -->
+<aside
+  #panel
+  id="twin-panel"
+  class="twin"
+  [class.twin--open]="open()"
+  [attr.inert]="open() ? null : ''"
+  aria-labelledby="twin-title"
+  tabindex="-1"
+  [style.--vvh]="viewportHeight()"
+  [style.--vvt]="viewportTop()"
+>
+  <header class="twin__head">
+    <div class="twin__heading">
+      <h2 id="twin-title" class="twin__title">{{ ui().title }}</h2>
+      <p class="twin__subtitle">{{ ui().subtitle }}</p>
+    </div>
+
+    <div class="twin__tools">
+      @if (twin.started()) {
+        <button
+          type="button"
+          class="twin__tool"
+          [attr.aria-label]="ui().newChat"
+          [attr.title]="ui().newChat"
+          (click)="twin.reset()"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M4.5 12a7.5 7.5 0 1 0 2.4-5.5M4.5 4.5v4h4"
+              stroke="currentColor"
+              stroke-width="1.85"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      }
+      <button type="button" class="twin__tool" [attr.aria-label]="ui().close" [attr.title]="ui().close" (click)="close()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div #log class="twin__log" role="log" aria-live="polite" aria-relevant="additions">
+    <div class="msg msg--assistant">
+      <span class="visually-hidden">{{ ui().twinName }}:</span>
+      <p>{{ ui().welcome }}</p>
+    </div>
+
+    @for (message of twin.messages(); track message.id) {
+      <div
+        class="msg"
+        [class.msg--user]="message.role === 'user'"
+        [class.msg--assistant]="message.role === 'assistant'"
+        [class.msg--error]="message.failed"
+      >
+        <span class="visually-hidden">{{ message.role === 'user' ? ui().you : ui().twinName }}:</span>
+        <p>{{ message.content }}</p>
+      </div>
+    }
+
+    @if (twin.pending()) {
+      <div class="msg msg--assistant">
+        <span class="visually-hidden">{{ slow() ? ui().stillThinking : ui().thinking }}</span>
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        @if (slow()) {
+          <p class="msg__note" aria-hidden="true">{{ ui().stillThinking }}</p>
+        }
+      </div>
+    }
+
+    @if (!twin.started()) {
+      <div class="suggestions">
+        <p class="suggestions__label">{{ ui().suggestionsLabel }}</p>
+        <ul class="suggestions__list">
+          @for (suggestion of ui().suggestions; track suggestion) {
+            <li>
+              <button type="button" class="suggestions__item" (click)="askSuggestion(suggestion)">{{ suggestion }}</button>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+
+  <form class="twin__form" (submit)="submit($event)">
+    <label class="visually-hidden" for="twin-input">{{ ui().placeholder }}</label>
+    <input
+      #input
+      id="twin-input"
+      class="twin__input"
+      type="text"
+      enterkeyhint="send"
+      autocomplete="off"
+      autocapitalize="sentences"
+      [maxLength]="maxChars"
+      [placeholder]="ui().placeholder"
+      [value]="draft()"
+      (input)="onInput($event)"
+    />
+    <button type="submit" class="twin__send" [disabled]="!canSend()" [attr.aria-label]="ui().send">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </form>
+</aside>

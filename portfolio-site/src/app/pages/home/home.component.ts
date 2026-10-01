@@ -7,6 +7,7 @@ import { HeroComponent } from '../../components/hero/hero.component';
 import { JourneyComponent } from '../../components/journey/journey.component';
 import { ProjectsComponent } from '../../components/projects/projects.component';
 import { SkillsComponent } from '../../components/skills/skills.component';
+import { TwinComponent } from '../../components/twin/twin.component';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,7 @@ import { SkillsComponent } from '../../components/skills/skills.component';
     ProjectsComponent,
     ContactComponent,
     FooterComponent,
+    TwinComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

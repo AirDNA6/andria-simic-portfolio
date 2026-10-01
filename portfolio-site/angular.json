@@ -67,7 +67,8 @@
               "buildTarget": "portfolio-site:build:production"
             },
             "development": {
-              "buildTarget": "portfolio-site:build:development"
+              "buildTarget": "portfolio-site:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

@@ -4,7 +4,7 @@
     <p class="contact__desc">{{ ui().desc }}</p>
 
     <div class="contact__email-row">
-      <a class="contact__email hl" [href]="'mailto:' + content().email">{{ content().email }}</a>
+      <a class="contact__email hl tap-area"[href]="'mailto:' + content().email">{{ content().email }}</a>
 
       @if (canCopy) {
         <button type="button" class="contact__copy" [class.contact__copy--done]="copied()" (click)="copyEmail()">
@@ -16,7 +16,7 @@
 
     <ul class="contact__details">
       <li>
-        <a class="hl" [href]="content().github" target="_blank" rel="noopener noreferrer">github.com/AirDNA6</a>
+        <a class="hl tap-area" [href]="content().github" target="_blank" rel="noopener noreferrer">github.com/AirDNA6</a>
       </li>
       <li>{{ content().location }}</li>
     </ul>

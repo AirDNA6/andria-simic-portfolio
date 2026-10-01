@@ -35,13 +35,16 @@
     overflow-wrap: anywhere;
     background-size: 100% 0.14em;
 
-    &:hover {
-      background-size: 100% 0.5em;
+    @media (hover: hover) {
+      &:hover {
+        background-size: 100% 0.5em;
+      }
     }
   }
 
   &__copy {
     min-width: 6.5rem;
+    min-height: 2.75rem;
     padding: 0.5rem 0.9rem;
     font: inherit;
     font-size: 0.875rem;
@@ -53,9 +56,11 @@
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
 
-    &:hover {
-      color: var(--paper);
-      background: var(--ink);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--paper);
+        background: var(--ink);
+      }
     }
 
     &--done,

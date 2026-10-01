@@ -21,6 +21,7 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima n
       location: 'Beograd',
       current: true,
       highlights: [
+        'Član SWAT tima: rad na Finance aplikaciji i razvoj novog modula za ugovore.',
         'Razvio mikroservis za notifikacije koristeći Angular, .NET, SignalR, DynamoDB i Kafka. Event-driven arhitektura omogućava skalabilne real-time notifikacije, a servis je integrisan u više projekata.',
         'Kreirao custom NuGet pakete za SignalR i Kafka radi standardizacije upotrebe i lakše integracije kroz servise.',
         'Implementirao Redis keširanje radi boljih performansi i manjeg opterećenja baze.',
@@ -182,6 +183,31 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima n
     footer: {
       crafted: 'Napravljeno u Angular-u.',
       backToTop: 'Nazad na vrh',
+    },
+    twin: {
+      launcher: 'Pitaj mog digitalnog blizanca',
+      open: 'Otvori ćaskanje sa mojim digitalnim blizancem',
+      close: 'Zatvori ćaskanje',
+      title: 'Digitalni blizanac',
+      subtitle: 'AI asistent. Odgovara samo na osnovu ovog portfolija.',
+      welcome:
+        'Zdravo! Ja sam AI digitalni blizanac. Znam samo ono što piše u ovom portfoliju, pa me pitaj o radnom iskustvu, veštinama, projektima ili obrazovanju.',
+      suggestionsLabel: 'Probaj da pitaš',
+      suggestions: [
+        'Čime se baviš u ExamRoom.AI?',
+        'Koje tehnologije najviše koristiš?',
+        'Reci mi više o servisu za real-time notifikacije',
+        'Kako mogu da te kontaktiram?',
+      ],
+      placeholder: 'Pitaj o mom iskustvu…',
+      send: 'Pošalji',
+      thinking: 'Razmišljam…',
+      stillThinking: 'Još radim na tome, može potrajati nekoliko sekundi…',
+      newChat: 'Novo ćaskanje',
+      you: 'Ti',
+      twinName: 'Digitalni blizanac',
+      errorGeneric: 'Izvini, trenutno ne mogu da odgovorim. Pokušaj ponovo ili mi pošalji mejl.',
+      errorBusy: 'Previše pitanja u kratkom roku. Sačekaj minut pa pokušaj ponovo.',
     },
   },
 };

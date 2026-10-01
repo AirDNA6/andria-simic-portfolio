@@ -16,12 +16,14 @@
       gap: 2rem;
     }
 
-    &:hover .projects__anchor {
-      background-size: 100% 0.4em;
-    }
+    @media (hover: hover) {
+      &:hover .projects__anchor {
+        background-size: 100% 0.4em;
+      }
 
-    &:hover .projects__link svg {
-      transform: translate(3px, -3px);
+      &:hover .projects__link svg {
+        transform: translate(3px, -3px);
+      }
     }
   }
 

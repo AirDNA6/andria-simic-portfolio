@@ -21,6 +21,7 @@ Across enterprise and freelance engagements, I've partnered with key users throu
       location: 'Belgrade',
       current: true,
       highlights: [
+        'Member of the SWAT team, working on the Finance application and developing a new module for contracts.',
         'Built a notification microservice with Angular, .NET, SignalR, DynamoDB, and Kafka. Its event-driven architecture delivers scalable real-time notifications and is integrated into multiple projects.',
         'Created custom NuGet packages for SignalR and Kafka to standardize usage and simplify integration across services.',
         'Implemented Redis caching to improve performance and reduce database load.',
@@ -182,6 +183,31 @@ Across enterprise and freelance engagements, I've partnered with key users throu
     footer: {
       crafted: 'Built with Angular.',
       backToTop: 'Back to top',
+    },
+    twin: {
+      launcher: 'Ask my digital twin',
+      open: 'Open chat with my digital twin',
+      close: 'Close chat',
+      title: 'Digital twin',
+      subtitle: 'AI assistant. Answers only from this portfolio.',
+      welcome:
+        "Hi! I'm Andria's AI digital twin. I only know what's in this portfolio, so ask me about my work experience, skills, projects, or education.",
+      suggestionsLabel: 'Try asking',
+      suggestions: [
+        'What do you do at ExamRoom.AI?',
+        'Which technologies do you use most?',
+        'Tell me about your real-time notification service',
+        'How can I contact you?',
+      ],
+      placeholder: 'Ask about my experience…',
+      send: 'Send',
+      thinking: 'Thinking…',
+      stillThinking: 'Still working on it, this can take a few seconds…',
+      newChat: 'New chat',
+      you: 'You',
+      twinName: 'Digital twin',
+      errorGeneric: "Sorry, I couldn't get an answer just now. Please try again, or email me.",
+      errorBusy: 'Too many questions in a short time. Please wait a minute and try again.',
     },
   },
 };

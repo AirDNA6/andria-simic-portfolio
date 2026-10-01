@@ -8,7 +8,7 @@
 #### ExamRoom.AI, Belgrade
 Medior Full Stack Developer
 March 2023 - Present
-
+- SWAT Team, working on Finance application and developing new module for contracts
 - Developed a notification microservice using Angular, .NET, SignalR, DynamoDB, and Kafka, enabling real-time notifications with a scalable event-driven architecture, integrated it into multiple projects for seamless real-time updates
 - Created custom NuGet packages for SignalR and Kafka to standardize usage and simplify integration across various services
 - Implemented Redis caching, optimizing performance and reducing database load for improved application efficiency.
