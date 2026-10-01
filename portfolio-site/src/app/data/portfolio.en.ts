@@ -29,8 +29,9 @@ Across enterprise and freelance engagements, I've partnered with key users throu
         'Developed and integrated a new module, extending application functionality and improving the user experience.',
         'Refactored the Minimal API structure for readability, maintainability, and efficiency.',
         'Maintained and enhanced existing functionality, keeping the system stable and improving performance.',
+        'Integrate AWS Kiro AI into daily development workflows to accelerate implementation, refactoring, and overall engineering productivity.',
       ],
-      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet'],
+      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet', 'AWS Kiro'],
     },
     {
       period: 'Mar 2021 — Mar 2023',
@@ -109,6 +110,10 @@ Across enterprise and freelance engagements, I've partnered with key users throu
       label: 'Cloud & DevOps',
       items: ['AWS', 'S3', 'EC2', 'SQS', 'IAM', 'ElastiCache', 'Secrets Manager', 'GitHub', 'GitLab', 'Jira', 'Scrum'],
     },
+    {
+      label: 'AI-assisted development',
+      items: ['Codex', 'Claude Code'],
+    },
   ],
 
   projects: [
@@ -179,7 +184,7 @@ Across enterprise and freelance engagements, I've partnered with key users throu
     },
     projects: {
       title: 'Person projects',
-      desc: 'Side projects that sharpen API integration, data persistence, and polished UIs.',
+      desc: 'Personal projects focused on building full-stack applications and exploring modern technologies.',
       viewOnGithub: 'View on GitHub',
       viewLive: 'Live site',
     },
