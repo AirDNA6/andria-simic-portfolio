@@ -1,0 +1,15 @@
+{
+  // Vercel compiles api/*.ts with the nearest tsconfig. Without this file it falls back to the
+  // Angular root tsconfig ("module": "ES2022"), which emits ES module imports without file
+  // extensions (import ... from '../server/twin'). Node cannot resolve those and the function
+  // crashes on load with FUNCTION_INVOCATION_FAILED. CommonJS output avoids that.
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "types": ["node"]
+  }
+}
