@@ -9,9 +9,9 @@ export const PORTFOLIO_EN: PortfolioContent = {
   github: 'https://github.com/AirDNA6',
   location: 'Belgrade, Serbia',
 
-  about: `Medior full-stack developer with an electrical and computer engineering background, specializing in .NET, Angular, and cloud-native architectures. I build real-time, event-driven systems with Kafka and SignalR, and keep APIs clean and maintainable.
+  about: `Medior full-stack developer specializing in .NET, Angular, and cloud-native architectures. Real-time, event-driven systems with Kafka and SignalR, and keep APIs clean and maintainable.
 
-Across enterprise and freelance engagements, I've partnered with key users through weekly meetings, standardized integrations via custom NuGet packages, and pushed performance with Redis, Elasticsearch, and AWS. I bring a systems mindset to every sprint: measurable impact, reliable code, and interfaces that feel intentional.`,
+Across enterprise and freelance engagements, I've partnered with key users, standardized integrations via custom NuGet packages, and pushed performance with Redis, Elasticsearch, and AWS. I bring a systems mindset to every sprint: measurable impact, reliable code, and interfaces that feel intentional.`,
 
   career: [
     {
