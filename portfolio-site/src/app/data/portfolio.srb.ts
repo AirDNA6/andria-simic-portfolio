@@ -16,7 +16,7 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
   career: [
     {
       period: 'Mar 2023 — danas',
-      role: 'Medior Full Stack Developer',
+      role: 'Full Stack Developer',
       company: 'ExamRoom.AI',
       location: 'Beograd',
       current: true,
@@ -31,7 +31,7 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
         'Održavao i unapređivao postojeće funkcionalnosti, uz stabilnost sistema i bolje performanse.',
         'Koristim AWS Kiro AI u svakodnevnom procesu razvoja kako bih ubrzao implementaciju, refaktorisanje i ukupnu produktivnost u razvoju softvera.',
       ],
-      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet', 'AWS Kiro'],
+      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet', 'RxJS', 'NgRx', 'CQRS', 'AWS Kiro'],
     },
     {
       period: 'Mar 2021 — Mar 2023',
@@ -96,7 +96,7 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
   skillGroups: [
     {
       label: 'Backend i API-ji',
-      items: ['C#', '.NET Web API', '.NET MVC', 'SignalR', 'Entity Framework', 'Dapper', 'Spring Boot', 'Minimal APIs'],
+      items: ['C#', '.NET Web API', '.NET MVC', 'SignalR', 'Entity Framework', 'Dapper', 'Spring Boot', 'Minimal APIs', 'CQRS'],
     },
     {
       label: 'Frontend',

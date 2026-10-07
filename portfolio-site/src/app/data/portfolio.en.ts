@@ -16,7 +16,7 @@ Across enterprise and freelance engagements, I've partnered with key users, stan
   career: [
     {
       period: 'Mar 2023 — Present',
-      role: 'Medior Full Stack Developer',
+      role: 'Full Stack Developer',
       company: 'ExamRoom.AI',
       location: 'Belgrade',
       current: true,
@@ -31,7 +31,7 @@ Across enterprise and freelance engagements, I've partnered with key users, stan
         'Maintained and enhanced existing functionality, keeping the system stable and improving performance.',
         'Integrate AWS Kiro AI into daily development workflows to accelerate implementation, refactoring, and overall engineering productivity.',
       ],
-      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet', 'AWS Kiro'],
+      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet', 'RxJS', 'NgRx', 'CQRS', 'AWS Kiro'],
     },
     {
       period: 'Mar 2021 — Mar 2023',
@@ -96,7 +96,7 @@ Across enterprise and freelance engagements, I've partnered with key users, stan
   skillGroups: [
     {
       label: 'Backend & APIs',
-      items: ['C#', '.NET Web API', '.NET MVC', 'SignalR', 'Entity Framework', 'Dapper', 'Spring Boot', 'Minimal APIs'],
+      items: ['C#', '.NET Web API', '.NET MVC', 'SignalR', 'Entity Framework', 'Dapper', 'Spring Boot', 'Minimal APIs', 'CQRS'],
     },
     {
       label: 'Frontend',
