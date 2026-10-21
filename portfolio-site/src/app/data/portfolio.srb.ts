@@ -96,11 +96,11 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
   skillGroups: [
     {
       label: 'Backend i API-ji',
-      items: ['C#', '.NET Web API', '.NET MVC', 'SignalR', 'Entity Framework', 'Dapper', 'Spring Boot', 'Minimal APIs', 'CQRS'],
+      items: ['C#', '.NET Web API', '.NET MVC', 'SignalR', 'Entity Framework', 'Dapper', 'Spring Boot', 'Minimal APIs', 'Node.js', 'CQRS'],
     },
     {
       label: 'Frontend',
-      items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'JavaScript', 'Bootstrap', 'Material UI', 'DevExtreme'],
+      items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'React', 'JavaScript', 'Bootstrap', 'Material UI', 'DevExtreme'],
     },
     {
       label: 'Podaci i messaging',
