@@ -9,7 +9,7 @@ export const PORTFOLIO_SRB: PortfolioContent = {
   github: 'https://github.com/AirDNA6',
   location: 'Beograd, Srbija',
 
-  about: `Medior full-stack developer specijalizovan za .NET, Angular i cloud-native arhitekture. Real-time, event-driven sisteme uz Kafka i SignalR i pazim da API-⁠ji ostanu održivi i pouzdani.
+  about: `Full-stack developer specijalizovan za .NET, Angular i cloud-native arhitekture. Real-time, event-driven sisteme uz Kafka i SignalR i pazim da API-⁠ji ostanu održivi i pouzdani.
 
 Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, standardizovao integracije kroz custom NuGet pakete i unapredio performanse pomoću Redis-a, Elasticsearch-a i AWS-a. U svaki sprint unosim sistemski pristup: merljiv uticaj, pouzdan kod i interfejsi.`,
 
@@ -173,7 +173,7 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
     },
     journey: {
       title: 'Iskustvo',
-      desc: 'Enterprise softver, integracione platforme i real-time sistemi, od prakse do medior uloge.',
+      desc: 'Enterprise softver, integracione platforme i real-time sistemi',
       employment: 'Zaposlenje',
       freelance: 'Frilens',
       stack: 'Korišćene tehnologije',
