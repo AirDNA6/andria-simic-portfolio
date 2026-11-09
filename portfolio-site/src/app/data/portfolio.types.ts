@@ -16,10 +16,41 @@ export interface EducationEntry {
 
 export interface ProjectEntry {
   title: string;
-  url: string;
+  /** Repository link. Omit it for a project without a public repository. */
+  url?: string;
   liveUrl?: string;
   description: string;
   tags: string[];
+}
+
+/** One step of a project's pipeline: the tool that does the work and what it does. */
+export interface PipelineStage {
+  name: string;
+  detail: string;
+}
+
+export interface ProjectPart {
+  title: string;
+  text: string;
+}
+
+/** A personal project told as a case study instead of a one-line row. */
+export interface FeaturedProject {
+  title: string;
+  /** What it is, e.g. "3D-printing design studio · Side project". */
+  kind: string;
+  period: string;
+  current?: boolean;
+  summary: string;
+  /** Repository link. Omit it for a project without a public repository. */
+  url?: string;
+  liveUrl?: string;
+  /** Caption for the pipeline diagram. */
+  pipelineCaption: string;
+  /** Stages in the order data travels through them. The last one is the output. */
+  pipeline: PipelineStage[];
+  parts: ProjectPart[];
+  stack: string[];
 }
 
 export interface SkillGroup {
@@ -73,6 +104,8 @@ export interface PortfolioUi {
   projects: {
     title: string;
     desc: string;
+    more: string;
+    stack: string;
     viewOnGithub: string;
     viewLive: string;
   };
@@ -121,6 +154,7 @@ export interface PortfolioContent {
   education: EducationEntry[];
   languages: LanguageEntry[];
   skillGroups: SkillGroup[];
+  featuredProject: FeaturedProject;
   projects: ProjectEntry[];
   navLinks: NavLink[];
   ui: PortfolioUi;

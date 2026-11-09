@@ -9,9 +9,9 @@ export const PORTFOLIO_SRB: PortfolioContent = {
   github: 'https://github.com/AirDNA6',
   location: 'Beograd, Srbija',
 
-  about: `Full-stack developer specijalizovan za .NET, Angular i cloud-native arhitekture. Real-time, event-driven sisteme uz Kafka i SignalR i pazim da API-⁠ji ostanu održivi i pouzdani.
+  about: `Full-stack developer specijalizovan za .NET, Angular i cloud-native arhitekture. Gradim real-time, event-driven sisteme uz Kafka i SignalR i pazim da API-⁠ji ostanu održivi i pouzdani.
 
-Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, standardizovao integracije kroz custom NuGet pakete i unapredio performanse pomoću Redis-a, Elasticsearch-a i AWS-a. U svaki sprint unosim sistemski pristup: merljiv uticaj, pouzdan kod i interfejsi.`,
+Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, standardizovao integracije kroz custom NuGet pakete i unapredio performanse pomoću Redis-a, Elasticsearch-a i AWS-a. U svaki sprint unosim sistemski pristup: merljiv uticaj, pouzdan kod i interfejsi koji deluju promišljeno. Van posla dizajniram i gradim SiriusLab, studio za 3D štampu sa React i three.js frontendom i Python i FastAPI backendom.`,
 
   career: [
     {
@@ -25,13 +25,12 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
         'Razvio mikroservis za notifikacije koristeći Angular, .NET, SignalR, DynamoDB i Kafka. Event-driven arhitektura omogućava skalabilne real-time notifikacije, a servis je integrisan u više projekata.',
         'Kreirao custom NuGet pakete za SignalR i Kafka radi standardizacije upotrebe i lakše integracije kroz servise.',
         'Implementirao Redis keširanje radi boljih performansi i manjeg opterećenja baze.',
-        'Razvio Bulk Item Import modul: Excel šablone za masovno kreiranje i prevođenje postojećih stavki, uz backend validaciju zasnovanu na FluentValidation-u, automatsko popunjavanje ćelija i validaciju zavisnih polja radi manje ručnog unosa i grešaka.',
-        'Razvio i integrisao novi modul koji je proširio funkcionalnost aplikacije i unapredio korisničko iskustvo.',
+        'Razvio Bulk Item Import modul: Excel šablone za masovno kreiranje i prevođenje postojećih stavki, uz backend validaciju zasnovanu na FluentValidation-u, automatsko popunjavanje ćelija i validaciju zavisnih polja. Zamenio je ručni uvoz stavku po stavku jednim uvozom, što štedi sate rada.',
         'Refaktorisao Minimal API strukturu radi bolje čitljivosti, održivosti i efikasnosti.',
-        'Održavao i unapređivao postojeće funkcionalnosti, uz stabilnost sistema i bolje performanse.',
-        'Koristim AWS Kiro AI u svakodnevnom procesu razvoja kako bih ubrzao implementaciju, refaktorisanje i ukupnu produktivnost u razvoju softvera.',
+        'Isporučio novi modul i održavao postojeće funkcionalnosti, uz bolje korisničko iskustvo, stabilnost i performanse.',
+        'Koristim AWS Kiro AI i Claude Code u svakodnevnom razvoju kako bih ubrzao implementaciju, refaktorisanje i ukupnu produktivnost u razvoju softvera.',
       ],
-      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet', 'RxJS', 'NgRx', 'CQRS', 'AWS Kiro'],
+      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet', 'RxJS', 'NgRx', 'CQRS'],
     },
     {
       period: 'Mar 2021 — Mar 2023',
@@ -96,29 +95,72 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
   skillGroups: [
     {
       label: 'Backend i API-ji',
-      items: ['C#', '.NET Web API', '.NET MVC', 'SignalR', 'Entity Framework', 'Dapper', 'Spring Boot', 'Minimal APIs', 'Node.js', 'CQRS'],
+      items: ['C#', '.NET Web API', '.NET MVC', 'Minimal APIs', 'SignalR', 'Entity Framework', 'Dapper', 'CQRS', 'Spring Boot', 'Node.js'],
+    },
+    {
+      label: 'Python i 3D',
+      items: ['Python', 'FastAPI', 'SQLModel', 'Alembic', 'pytest', 'CadQuery', 'trimesh', 'shapely'],
     },
     {
       label: 'Frontend',
-      items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'React', 'JavaScript', 'Bootstrap', 'Material UI', 'DevExtreme'],
+      items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'React', 'three.js', 'JavaScript', 'Bootstrap', 'Material UI', 'DevExtreme'],
     },
     {
       label: 'Podaci i messaging',
-      items: ['MS SQL', 'DynamoDB', 'Redis', 'Elasticsearch', 'Kafka', 'ActiveMQ', 'Talend ESB'],
+      items: ['SQL', 'MS SQL', 'DynamoDB', 'Redis', 'Elasticsearch', 'Kafka', 'ActiveMQ', 'Talend ESB'],
     },
     {
       label: 'Cloud i DevOps',
-      items: ['AWS', 'S3', 'EC2', 'SQS', 'IAM', 'ElastiCache', 'Secrets Manager', 'GitHub', 'GitLab', 'Jira', 'Scrum'],
+      items: ['AWS', 'S3', 'EC2', 'SQS', 'IAM', 'ElastiCache', 'Secrets Manager', 'GitHub', 'GitLab', 'GitHub Actions', 'Jira', 'Scrum'],
     },
     {
       label: 'Razvoj uz AI asistente',
-      items: ['Codex', 'Claude Code'],
+      items: ['Claude Code', 'Codex', 'AWS Kiro AI'],
     },
   ],
 
+  featuredProject: {
+    title: 'SiriusLab',
+    kind: 'Forge studio za 3D štampu · Lični projekat',
+    period: 'Jun 2026 — danas',
+    current: true,
+    summary:
+      'Sirius Forge je platforma za dizajniranje proizvoda za 3D štampu, kao što su privesci za ključeve sa imenom i brojem sa dresa, pločice po meri ili slagalice od slike, u 3D prikazu uživo. Python pipeline pretvara svaki dizajn u višebojne fajlove za štampu, koje štampam i fizički izrađujem sam.',
+    pipelineCaption: 'Kako dizajn postaje fajl za štampu',
+    pipeline: [
+      { name: 'React + three.js', detail: 'Korisnici dizajniraju u 3D prikazu uživo' },
+      { name: 'FastAPI', detail: 'Sesije i API, uz SQLModel i Alembic' },
+      { name: 'CadQuery', detail: 'Geometrija, uz trimesh i shapely' },
+      { name: '3MF / STL', detail: 'Višebojni fajlovi za štampu' },
+    ],
+    parts: [
+      {
+        title: 'Sirius Forge',
+        text: 'Korisnička aplikacija u React-u i three.js-u u kojoj korisnici u 3D prikazu uživo dizajniraju priveske za ključeve i pločice sa imenom i brojem sa dresa ili pretvaraju sliku u slagalicu.',
+      },
+      {
+        title: 'Geometrijski pipeline',
+        text: 'Python (CadQuery, trimesh, shapely) gradi višebojne 3MF i STL fajlove. Radni prostori po korisniku sa TTL čišćenjem, uz LRU keširanje zbog kog promena boje nikada ne pokreće CAD izradu iznova.',
+      },
+      {
+        title: 'Admin panel',
+        text: 'JWT autentifikacija administratora u httpOnly kolačiću, privatno preuzimanje fajlova za štampu i upravljanje upitima, galerijom i filamentima. SQLite u razvoju, spreman za Postgres.',
+      },
+      {
+        title: 'Kvalitet i vidljivost',
+        text: 'GitHub Actions CI koji pokreće pytest, ESLint, Vitest i build. Dvojezični EN/SR interfejs i prerenderovane SEO i OpenGraph stranice za preglede linkova.',
+      },
+      {
+        title: 'Ručni rad',
+        text: 'Fusion 360 dodatak uvozi generisane dizajne radi uređivanja, a fizičke delove štampam sam.',
+      },
+    ],
+    stack: ['Python', 'FastAPI', 'SQLModel', 'Alembic', 'CadQuery', 'trimesh', 'shapely', 'React', 'three.js', 'pytest', 'GitHub Actions'],
+  },
+
   projects: [
     {
-      title: 'Portfolio',
+      title: 'Portfolio i AI digitalni blizanac',
       url: 'https://github.com/AirDNA6/andria-simic-portfolio',
       liveUrl: 'https://andria-simic-portfolio.vercel.app/',
       description:
@@ -138,7 +180,7 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
       description:
         'Web aplikacija za otkrivanje filmova koristeći TMDB API, izgrađena u React-u za fluidno pretraživanje i pregled.',
       tags: ['React', 'TMDB API', 'SPA'],
-    }
+    },
   ],
 
   navLinks: [
@@ -180,11 +222,13 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
     },
     skills: {
       title: 'Stack i alati',
-      desc: 'Tehnologije koje koristim u produkciji: backend, frontend, podaci i cloud.',
+      desc: 'Tehnologije koje koristim: backend, frontend, podaci i cloud.',
     },
     projects: {
       title: 'Lični projekti',
       desc: 'Lični projekti usmereni na razvoj „full-stack” aplikacija i istraživanje savremenih tehnologija.',
+      more: 'Ostali projekti',
+      stack: 'Korišćene tehnologije',
       viewOnGithub: 'Pogledaj na GitHub-u',
       viewLive: 'Live sajt',
     },
@@ -211,6 +255,7 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
         'Čime se baviš u ExamRoom.AI?',
         'Koje tehnologije najviše koristiš?',
         'Reci mi više o servisu za real-time notifikacije',
+        'Šta je SiriusLab?',
         'Kako mogu da te kontaktiram?',
       ],
       placeholder: 'Pitaj o mom iskustvu…',

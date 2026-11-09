@@ -9,9 +9,9 @@ export const PORTFOLIO_EN: PortfolioContent = {
   github: 'https://github.com/AirDNA6',
   location: 'Belgrade, Serbia',
 
-  about: `Full-stack developer specializing in .NET, Angular, and cloud-native architectures. Real-time, event-driven systems with Kafka and SignalR, and keep APIs clean and maintainable.
+  about: `Full-stack developer specializing in .NET, Angular, and cloud-native architectures. I build real-time, event-driven systems with Kafka and SignalR and keep APIs clean and maintainable.
 
-Across enterprise and freelance engagements, I've partnered with key users, standardized integrations via custom NuGet packages, and pushed performance with Redis, Elasticsearch, and AWS. I bring a systems mindset to every sprint: measurable impact, reliable code, and interfaces that feel intentional.`,
+Across enterprise and freelance engagements, I've partnered with key users, standardized integrations via custom NuGet packages, and pushed performance with Redis, Elasticsearch, and AWS. I bring a systems mindset to every sprint: measurable impact, reliable code, and interfaces that feel intentional. Outside work, I design and build SiriusLab, a 3D-printing studio with a React and three.js front end and a Python and FastAPI back end.`,
 
   career: [
     {
@@ -25,13 +25,12 @@ Across enterprise and freelance engagements, I've partnered with key users, stan
         'Built a notification microservice with Angular, .NET, SignalR, DynamoDB, and Kafka. Its event-driven architecture delivers scalable real-time notifications and is integrated into multiple projects.',
         'Created custom NuGet packages for SignalR and Kafka to standardize usage and simplify integration across services.',
         'Implemented Redis caching to improve performance and reduce database load.',
-        'Built the Bulk Item Import module: Excel templates for bulk item creation and translation of existing items, with FluentValidation-based backend validation, automatic cell population, and dependent-field validation to reduce manual data entry and errors.',
-        'Developed and integrated a new module, extending application functionality and improving the user experience.',
+        'Built the Bulk Item Import module: Excel templates for bulk item creation and translation of existing items, with FluentValidation-based backend validation, automatic cell population, and dependent-field validation. It replaced manual item-by-item imports with a single import, saving hours of work.',
         'Refactored the Minimal API structure for readability, maintainability, and efficiency.',
-        'Maintained and enhanced existing functionality, keeping the system stable and improving performance.',
-        'Integrate AWS Kiro AI into daily development workflows to accelerate implementation, refactoring, and overall engineering productivity.',
+        'Delivered a new module and maintained existing functionality, improving user experience, stability, and performance.',
+        'Integrate AWS Kiro AI and Claude Code into daily development to accelerate implementation, refactoring, and engineering productivity.',
       ],
-      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet', 'RxJS', 'NgRx', 'CQRS', 'AWS Kiro'],
+      stack: ['.NET', 'Minimal APIs', 'Angular', 'SignalR', 'Kafka', 'DynamoDB', 'Redis', 'FluentValidation', 'NuGet', 'RxJS', 'NgRx', 'CQRS'],
     },
     {
       period: 'Mar 2021 — Mar 2023',
@@ -96,29 +95,72 @@ Across enterprise and freelance engagements, I've partnered with key users, stan
   skillGroups: [
     {
       label: 'Backend & APIs',
-      items: ['C#', '.NET Web API', '.NET MVC', 'SignalR', 'Entity Framework', 'Dapper', 'Spring Boot', 'Minimal APIs', 'Node.js', 'CQRS'],
+      items: ['C#', '.NET Web API', '.NET MVC', 'Minimal APIs', 'SignalR', 'Entity Framework', 'Dapper', 'CQRS', 'Spring Boot', 'Node.js'],
+    },
+    {
+      label: 'Python & 3D',
+      items: ['Python', 'FastAPI', 'SQLModel', 'Alembic', 'pytest', 'CadQuery', 'trimesh', 'shapely'],
     },
     {
       label: 'Frontend',
-      items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'React', 'JavaScript', 'Bootstrap', 'Material UI', 'DevExtreme'],
+      items: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'React', 'three.js', 'JavaScript', 'Bootstrap', 'Material UI', 'DevExtreme'],
     },
     {
       label: 'Data & Messaging',
-      items: ['MS SQL', 'DynamoDB', 'Redis', 'Elasticsearch', 'Kafka', 'ActiveMQ', 'Talend ESB'],
+      items: ['SQL', 'MS SQL', 'DynamoDB', 'Redis', 'Elasticsearch', 'Kafka', 'ActiveMQ', 'Talend ESB'],
     },
     {
       label: 'Cloud & DevOps',
-      items: ['AWS', 'S3', 'EC2', 'SQS', 'IAM', 'ElastiCache', 'Secrets Manager', 'GitHub', 'GitLab', 'Jira', 'Scrum'],
+      items: ['AWS', 'S3', 'EC2', 'SQS', 'IAM', 'ElastiCache', 'Secrets Manager', 'GitHub', 'GitLab', 'GitHub Actions', 'Jira', 'Scrum'],
     },
     {
       label: 'AI-assisted development',
-      items: ['Codex', 'Claude Code'],
+      items: ['Claude Code', 'Codex', 'AWS Kiro AI'],
     },
   ],
 
+  featuredProject: {
+    title: 'SiriusLab',
+    kind: '3D-printing forge studio · Side project',
+    period: 'Jun 2026 — Present',
+    current: true,
+    summary:
+      'Sirius Forge is a platform for designing 3D-printable products, such as name-and-number jersey keychains, custom plates, or image-based puzzles, in a live 3D viewer. A Python pipeline turns each design into multi-colour print files, which I print and fabricate physically.',
+    pipelineCaption: 'How a design becomes a print file',
+    pipeline: [
+      { name: 'React + three.js', detail: 'Users design in a live 3D viewer' },
+      { name: 'FastAPI', detail: 'Sessions and API, with SQLModel and Alembic' },
+      { name: 'CadQuery', detail: 'Geometry, with trimesh and shapely' },
+      { name: '3MF / STL', detail: 'Multi-colour print files' },
+    ],
+    parts: [
+      {
+        title: 'Sirius Forge',
+        text: 'User-facing React and three.js app where users design name-and-number jersey keychains and plates, or turn an image into a puzzle, in a live 3D viewer.',
+      },
+      {
+        title: 'Geometry pipeline',
+        text: 'Python (CadQuery, trimesh, shapely) builds multi-colour 3MF and STL files. Per-user session workspaces with TTL cleanup, and LRU caching so recolouring never re-runs the CAD build.',
+      },
+      {
+        title: 'Back office',
+        text: 'JWT admin authentication in an httpOnly cookie, private print-file downloads, and inquiry, gallery, and filament management. SQLite in development, Postgres-ready.',
+      },
+      {
+        title: 'Quality and reach',
+        text: 'GitHub Actions CI running pytest, ESLint, Vitest, and the build. A bilingual EN/SR interface and prerendered SEO and OpenGraph pages for link previews.',
+      },
+      {
+        title: 'Hands-on',
+        text: 'A Fusion 360 add-in imports generated designs for editing, and I print the physical pieces myself.',
+      },
+    ],
+    stack: ['Python', 'FastAPI', 'SQLModel', 'Alembic', 'CadQuery', 'trimesh', 'shapely', 'React', 'three.js', 'pytest', 'GitHub Actions'],
+  },
+
   projects: [
     {
-      title: 'Portfolio',
+      title: 'Portfolio & AI digital twin',
       url: 'https://github.com/AirDNA6/andria-simic-portfolio',
       liveUrl: 'https://andria-simic-portfolio.vercel.app/',
       description:
@@ -138,7 +180,7 @@ Across enterprise and freelance engagements, I've partnered with key users, stan
       description:
         'Cinema discovery web app powered by The Movie Database (TMDB) API, built with React for smooth browsing and search.',
       tags: ['React', 'TMDB API', 'SPA'],
-    }
+    },
   ],
 
   navLinks: [
@@ -180,11 +222,13 @@ Across enterprise and freelance engagements, I've partnered with key users, stan
     },
     skills: {
       title: 'Stack and tooling',
-      desc: 'Technologies I use in production across backend, frontend, data, and cloud.',
+      desc: 'Technologies I use across backend, frontend, data, and cloud.',
     },
     projects: {
-      title: 'Person projects',
+      title: 'Personal projects',
       desc: 'Personal projects focused on building full-stack applications and exploring modern technologies.',
+      more: 'More projects',
+      stack: 'Technologies used',
       viewOnGithub: 'View on GitHub',
       viewLive: 'Live site',
     },
@@ -211,6 +255,7 @@ Across enterprise and freelance engagements, I've partnered with key users, stan
         'What do you do at ExamRoom.AI?',
         'Which technologies do you use most?',
         'Tell me about your real-time notification service',
+        'What is SiriusLab?',
         'How can I contact you?',
       ],
       placeholder: 'Ask about my experience…',

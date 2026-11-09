@@ -1,4 +1,4 @@
-import type { CareerEntry, PortfolioContent } from '../src/app/data/portfolio.types';
+import type { CareerEntry, FeaturedProject, PortfolioContent } from '../src/app/data/portfolio.types';
 
 function describeRole(entry: CareerEntry, index: number): string {
   const where = entry.location ? `${entry.company}, ${entry.location}` : entry.company;
@@ -6,6 +6,17 @@ function describeRole(entry: CareerEntry, index: number): string {
   entry.highlights.forEach((highlight) => lines.push(`   - ${highlight}`));
   lines.push(`   Technologies: ${entry.stack.join(', ')}`);
   return lines.join('\n');
+}
+
+function describeFeatured(project: FeaturedProject): string {
+  const links = [project.url && `repository: ${project.url}`, project.liveUrl && `live: ${project.liveUrl}`].filter(Boolean);
+  return [
+    `- ${project.title}, ${project.kind} (${project.period})${project.current ? ' [current]' : ''}${links.length ? ` (${links.join(', ')})` : ''}`,
+    `  ${project.summary}`,
+    `  Pipeline: ${project.pipeline.map((stage) => `${stage.name} (${stage.detail})`).join(' -> ')}`,
+    ...project.parts.map((part) => `  - ${part.title}: ${part.text}`),
+    `  Technologies: ${project.stack.join(', ')}`,
+  ].join('\n');
 }
 
 /**
@@ -41,9 +52,10 @@ export function buildKnowledge(content: PortfolioContent): string {
     ...content.skillGroups.map((group) => `- ${group.label}: ${group.items.join(', ')}`),
     '',
     'PERSONAL PROJECTS:',
-    ...content.projects.map(
-      (p) =>
-        `- ${p.title} (repository: ${p.url}${p.liveUrl ? `, live: ${p.liveUrl}` : ''}): ${p.description} Tags: ${p.tags.join(', ')}`,
-    ),
+    describeFeatured(content.featuredProject),
+    ...content.projects.map((p) => {
+      const links = [p.url && `repository: ${p.url}`, p.liveUrl && `live: ${p.liveUrl}`].filter(Boolean);
+      return `- ${p.title}${links.length ? ` (${links.join(', ')})` : ''}: ${p.description} Tags: ${p.tags.join(', ')}`;
+    }),
   ].join('\n');
 }

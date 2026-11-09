@@ -1,4 +1,14 @@
 .projects {
+  // Names the second tier below the featured project, in the same voice as the freelance group in Experience.
+  &__group {
+    margin: clamp(3.5rem, 6vw, 5rem) 0 0;
+    padding-bottom: 0.65rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-bottom: 1.5px solid var(--ink);
+  }
+
   &__list {
     border-bottom: 1px solid var(--rule);
   }
@@ -10,6 +20,11 @@
     gap: 1.5rem;
     padding: clamp(1.5rem, 3vw, 2.25rem) 0;
     border-top: 1px solid var(--rule);
+
+    // The group heading's rule already closes the list's top edge.
+    &:first-child {
+      border-top: 0;
+    }
 
     @media (min-width: 40rem) {
       grid-template-columns: minmax(0, 1fr) auto;

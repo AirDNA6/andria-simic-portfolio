@@ -1,0 +1,227 @@
+// The pipeline borrows the hero diagram's vocabulary (bordered chips on a dashed route, the delivered
+// output lit in signal yellow) but stays still: it is there to be read, and the hero owns the page's motion.
+$chip-h: 2.5rem;
+$route-gap: 1.25rem; // half a chip: the route runs through the chips' centres
+$stack-bp: 40rem;
+
+.featured {
+  &__period {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+
+    // The yellow dot marks work that is still going on, as on the current role in Experience.
+    &--current::before {
+      content: '';
+      width: 0.6rem;
+      height: 0.6rem;
+      background: var(--signal);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1.5px var(--ink);
+    }
+  }
+
+  &__title {
+    margin-top: 0.6rem;
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    font-weight: 700;
+    font-stretch: 85%;
+    line-height: 1;
+    letter-spacing: -0.03em;
+
+    // The accent sits below the letters as an underline. A marker-height bar would run behind them, and
+    // in dark mode light text on yellow is about 1.3:1. "SiriusLab" has no descenders, so the bar is clear of the glyphs.
+    .hl {
+      padding-inline: 0.04em;
+      background-size: 100% 0.13em;
+    }
+  }
+
+  &__kind {
+    margin-top: 0.85rem;
+    font-size: var(--text-md);
+    font-weight: 600;
+    font-stretch: 95%;
+  }
+
+  &__summary {
+    max-width: 38rem;
+    margin-top: 1.25rem;
+    font-family: var(--font-text);
+    font-size: var(--text-lg);
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  &__figure {
+    margin-top: clamp(2.25rem, 4vw, 3rem);
+  }
+
+  // Skills-style rows: a short label beside the text, a hairline between rows.
+  &__parts {
+    margin-top: clamp(2.25rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  &__part {
+    display: grid;
+    gap: 0.4rem 2rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--rule);
+
+    @media (min-width: $stack-bp) {
+      grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
+    }
+
+    dt {
+      font-size: var(--text-md);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    dd {
+      max-width: 40rem;
+      font-family: var(--font-text);
+      font-size: var(--text-md);
+      line-height: 1.6;
+      color: var(--ink-soft);
+      text-wrap: pretty;
+    }
+  }
+
+  &__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-top: 1.5rem;
+  }
+
+  &__link {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
+
+.pipe {
+  position: relative;
+  display: grid;
+
+  // One column of stages on phones: chip on the left, what it does on the right, a route between chips.
+  &__stage {
+    position: relative;
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    column-gap: 1rem;
+    align-items: start;
+    padding-bottom: 1rem;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: $chip-h;
+      bottom: 0;
+      left: 4.75rem;
+      width: 2px;
+      margin-left: -1px;
+      background: repeating-linear-gradient(180deg, var(--ink-faint) 0 6px, transparent 6px 12px);
+    }
+  }
+
+  &__node {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $chip-h;
+    padding: 0 0.7rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    color: var(--ink);
+    background-color: var(--paper-raised);
+    border: 1.5px solid var(--ink);
+    border-radius: 0.5rem;
+  }
+
+  // The output is the finished print file, so it carries the accent, as the delivered node does in the hero.
+  &__stage--output &__node {
+    color: var(--on-signal);
+    background-color: var(--signal);
+  }
+
+  &__detail {
+    // Centres one line against the chip; a second line grows downward.
+    min-height: $chip-h;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-text);
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  &__caption {
+    margin-top: 1rem;
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  @media (min-width: $stack-bp) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    // Dashed route through the chips' centres, between the first and last chip.
+    &::before {
+      content: '';
+      position: absolute;
+      top: $route-gap;
+      left: 12.5%;
+      right: 12.5%;
+      height: 2px;
+      margin-top: -1px;
+      background: repeating-linear-gradient(90deg, var(--ink-faint) 0 6px, transparent 6px 12px);
+    }
+
+    &__stage {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      row-gap: 0.75rem;
+      padding: 0 0.5rem;
+      text-align: center;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      &:not(:last-child)::after {
+        content: none;
+      }
+    }
+
+    &__node {
+      min-width: 0;
+    }
+
+    &__detail {
+      display: block;
+      min-height: 0;
+      text-wrap: balance;
+    }
+  }
+}

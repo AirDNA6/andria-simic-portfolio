@@ -1,0 +1,51 @@
+<article class="featured" aria-labelledby="featured-title">
+  <p class="featured__period" [class.featured__period--current]="project().current">{{ project().period }}</p>
+
+  <h3 id="featured-title" class="featured__title">
+    <span class="hl is-active">{{ project().title }}</span>
+  </h3>
+  <p class="featured__kind">{{ project().kind }}</p>
+  <p class="featured__summary">{{ project().summary }}</p>
+
+  <figure class="featured__figure">
+    <ol class="pipe" [attr.aria-label]="project().pipelineCaption">
+      @for (stage of project().pipeline; track stage.name; let last = $last) {
+        <li class="pipe__stage" [class.pipe__stage--output]="last">
+          <span class="pipe__node">{{ stage.name }}</span>
+          <span class="pipe__detail">{{ stage.detail }}</span>
+        </li>
+      }
+    </ol>
+    <figcaption class="pipe__caption">{{ project().pipelineCaption }}</figcaption>
+  </figure>
+
+  <dl class="featured__parts">
+    @for (part of project().parts; track part.title) {
+      <div class="featured__part">
+        <dt>{{ part.title }}</dt>
+        <dd>{{ part.text }}</dd>
+      </div>
+    }
+  </dl>
+
+  <ul class="featured__stack" [attr.aria-label]="ui().stack">
+    @for (tech of project().stack; track tech) {
+      <li class="tag">{{ tech }}</li>
+    }
+  </ul>
+
+  @if (project().url || project().liveUrl) {
+    <p class="featured__links">
+      @if (project().url) {
+        <a class="featured__link hl tap-area" [href]="project().url" target="_blank" rel="noopener noreferrer">
+          {{ ui().viewOnGithub }}
+        </a>
+      }
+      @if (project().liveUrl) {
+        <a class="featured__link hl tap-area" [href]="project().liveUrl" target="_blank" rel="noopener noreferrer">
+          {{ ui().viewLive }}
+        </a>
+      }
+    </p>
+  }
+</article>
