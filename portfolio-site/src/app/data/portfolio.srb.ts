@@ -174,13 +174,6 @@ Kroz enterprise i freelance angažmane sarađivao sam sa ključnim korisnicima, 
         'Integracija API-ja Narodne banke Srbije sa čuvanjem podataka u MySQL bazi. Node.js i Express obrađuju podatke; React obezbeđuje responzivan frontend.',
       tags: ['React', 'Node.js', 'Express', 'MySQL', 'REST API'],
     },
-    {
-      title: 'Cinema Crypt',
-      url: 'https://github.com/AirDNA6/crypt',
-      description:
-        'Web aplikacija za otkrivanje filmova koristeći TMDB API, izgrađena u React-u za fluidno pretraživanje i pregled.',
-      tags: ['React', 'TMDB API', 'SPA'],
-    },
   ],
 
   navLinks: [

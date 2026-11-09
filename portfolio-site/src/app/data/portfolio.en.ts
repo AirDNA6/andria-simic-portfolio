@@ -174,13 +174,6 @@ Across enterprise and freelance engagements, I've partnered with key users, stan
         'Integrates the National Bank of Serbia API, persisting data in MySQL. Node.js and Express handle processing; React delivers a responsive frontend.',
       tags: ['React', 'Node.js', 'Express', 'MySQL', 'REST API'],
     },
-    {
-      title: 'Cinema Crypt',
-      url: 'https://github.com/AirDNA6/crypt',
-      description:
-        'Cinema discovery web app powered by The Movie Database (TMDB) API, built with React for smooth browsing and search.',
-      tags: ['React', 'TMDB API', 'SPA'],
-    },
   ],
 
   navLinks: [
